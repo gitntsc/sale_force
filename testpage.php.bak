@@ -1,0 +1,37 @@
+<?php
+$objConnect=mysql_connect("localhost","root","")or die("Error Connect Database");
+	mysql_select_db("sale_support");
+	$strSQL = "SELECT * FROM customer";
+	$objQuery = mysql_query($strSQL) or die ($strSQL);
+?>
+<table  border="1">
+  <tr>
+    <th width=""> <div align="center">Case No.</div></th>
+	<th width=""> <div align="center">Company</div></th>
+    <th width=""> <div align="center">Customer Name</div></th>
+    <th width=""><div align="center">View</div></th>
+   </tr>
+
+ <?php
+while($objResult = mysql_fetch_array($objQuery))
+{
+?>
+<form name="form1" method="post" action="fullview.php">
+  <tr>
+    <td><div align="center"><?php echo $objResult["case_id"];?></div></td>
+	<td><?php echo $objResult["company_name"];?></td>
+	<td><?php echo $objResult["cus_name"];?></td>
+	<td align="center"><a href="fullview.php?case_id=<?php echo $objResult["case_id"];?>">View</a></td>
+	
+  
+  </tr>
+  
+  </form>
+  <?php
+}
+  ?>
+ </table>
+
+ <?php
+mysql_close($objConnect);
+?>

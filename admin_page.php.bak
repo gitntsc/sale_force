@@ -1,0 +1,57 @@
+<?php
+	session_start();
+	if($_SESSION['u_id'] == "")
+	{
+		echo "Please Login!";
+		exit();
+	}
+
+	if($_SESSION['level'] != "admin")
+	{
+		echo "This page for admin only!";
+		exit();
+
+
+	}
+
+	include ='connect.php';
+	$strSQL = "SELECT * FROM member WHERE u_id = '".$_SESSION['u_id']."' ";
+	$objQuery = mysql_query($strSQL);
+	$objResult = mysql_fetch_array($objQuery);
+?>
+
+  <center><h1>Welcome to Admin Page!</h1> <br>
+  <table border="0" style="width: 200px">
+    <tbody>
+      <tr>
+        <td width="87"> &nbsp;Username</td>
+        <td width="197"><?php echo $objResult["username"];?>
+        </td>
+      </tr>
+      <tr>
+        <td> &nbsp;Name</td>
+        <td><?php echo $objResult["name"];?></td>
+		<td><?php echo $objResult["surname"];?></td>
+	</tr>
+	 <tr>
+        <td> &nbsp;Department</td>
+        <td><?php echo $objResult["leader"];?></td>
+		<td><?php echo $objResult["level"];?></td>
+		<td><?php echo $objResult["company"];?></td>
+		<td><?php echo $objResult["section"];?></td>
+
+	</tr>
+
+	<h3><a href="user.php">all user</h3><br>
+	<h3><a href="fullview.php">full view</h3><br>
+	<h3><a href="register.php">register</h3>
+	<h3><a href="editdata.php">Edit User</h3>
+
+    </tbody>
+  </table>
+  </center>
+   </div>
+  </div>
+</div>
+</body>
+</html>

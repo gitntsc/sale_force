@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Update Data</title>
+</head>
+<body>
+<?php
+$objConnect = mysql_connect("localhost","root","") or die("Error Connect to Database");
+$objDB = mysql_select_db("sale_support");
+$strSQL = "UPDATE member SET ";
+$strSQL .="u_id = '".$_POST["txtUserid"]."' ";
+$strSQL .=",name = '".$_POST["txtName"]."' ";
+$strSQL .=",surname = '".$_POST["txtSName"]."' ";
+$strSQL .=",username = '".$_POST["txtUsername"]."' ";
+$strSQL .=",password = '".$_POST["txtPassword"]."' ";
+$strSQL .=",fname = '".$_POST["txtFName"]."' ";
+$strSQL .=",level = '".$_POST["txtLevel"]."' ";
+$strSQL .=",department = '".$_POST["txtDepartment"]."' ";
+$strSQL .=",company = '".$_POST["txtCompany"]."' ";
+$strSQL .=",section = '".$_POST["txtSection"]."' ";
+$strSQL .="WHERE u_id = '".$_GET["user_id"]."' ";
+$objQuery = mysql_query($strSQL);
+if($objQuery)
+{
+	echo "Save Done.";
+}
+else
+{
+	echo "Error Save [".$strSQL."]";
+}
+mysql_close($objConnect);
+?>
+</body>
+</html>

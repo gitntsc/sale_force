@@ -1,0 +1,110 @@
+<html>
+<title>รายงานการปฏิบัติงาน</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<center><form name="form1" method="post" action="save_workreport.php" enctype="multipart/form-data">
+  
+  <h1>รายงานการปฏิบัติงาน</h1> <br>
+   
+  <table width="800" border="0" style="width: 800px">
+    <tbody>
+      <tr>
+        <td width="100"> &nbsp;บริษัท</td></td><td width="100"><input name="txtCompany" type="text" id="txtCompany">
+        <td align="center" width="50">ชื่อลูกค้า</td><td width="100"><input name="txtCusname" type="text" id="txtCusname">
+		<td align="center" width="100">ตำแหน่ง</td><td width="100"><input name="txtCuslevel" type="text" id="txtCuslevel">
+
+      </tr>
+	  <tr>
+		<td width="50%">ผู้มีอำนาจการตัดสินใจ</td><td width="150" maxlength="50" size="18"><input name="txtApprover" type="text" id="txtApprover">
+		<td width="400">บุคลิกลักษณะลูกค้า</td><td width="150" maxlength="50" size="18"><input name="txtPersonal" type="text" id="txtPersonal">
+	  </tr>
+	  </table>
+	  <table width="800" border="0" style="width: 800px">
+	  <tr>
+		<td width="20%"> &nbsp;ลักษณะการติดต่อ</td>
+        <td>
+      <select name="contact" id="contact">
+            <option value="tel">telephone</option>
+            <option value="email">Email</option>
+			<option value="meet">Meet</option>
+		</select>
+</td>
+      </tr>
+	  </tbody>
+	  </table>
+	  <table width="800" border="1" style="width: 800px">
+		<tbody>
+	   <tr>
+        <td align="center" width="50%"> &nbsp;รายละเอียด</td><br>
+		</tr>
+		</table>
+        <table width="800" border="1" style="width: 800px">
+		<tr>
+		</td><td width="800"  size="100"><input style="width:100%;height:400px;"  name="txtDetail" type="text" id="txtDetail"></td>
+      </tr>
+	  </table>
+	 
+	  </table>
+	  <table width="800" border="0" style="width: 800px">
+    <tbody>
+      <tr>
+        <td align="center" width="100"> &nbsp;Project ลูกค้า</td>
+         <td>
+        <select name="txtProject" id="txtProject">
+            <option value="replace">Replace</option>
+            <option value="standardized">Standardized</option>
+			<option value="cost saving">Cost saveing</option>
+			<option value="Value added">Value addded</option>
+		</select>
+		</td>
+      </tr>
+	  </table>
+	  <table border="0" style="width:800px;">
+       <tr>
+        <td align="center" style="width:300px;"> &nbsp;คาดการณ์การสั่งซื้อสินค้า (สินค้า&ปริมาณ)</td>
+        <td><input style="width:500px;" name="txtVol" type="text" id="txtVol">
+		</tr>
+		</table>
+	 <table border="0" style="width:800px;">
+	  <tr>
+
+        <td align="left" style="width:300px;"> &nbsp;ข้อมูลคู่แข่ง</td>
+      </tr>
+	  </table>
+	   <table border="0" style="width:800px;">
+       <tr>
+        <td align="left" style="width:50px;"> &nbsp;สินค้า</td>
+        <td><input style="width:750px;" name="txtPro" type="text" id="txtPro">
+        </td>
+      </tr>
+	  </table>
+	  <table border="0" style="width:800px;">
+       <tr>
+        <td align="left" style="width:35px;"> &nbsp;Source</td>
+        <td><input style="width:745px;" name="txtSou" type="text" id="txtSou">
+        </td>
+      </tr>
+	  </table>
+	  <table border="0" style="width:800px;">
+       <tr>
+        <td align="left" style="width:35px;"> &nbsp;ราคา</td>
+        <td><input style="width:755px;" name="txtCost" type="text" id="txtCost">
+        </td>
+      </tr>
+	  </table>
+		<table border="0" style="width:800px;">
+       <tr>
+        <td align="left" style="width:190px;"> &nbsp;ข้อเสนอแนะจากหัวหน้างาน</td>
+        <td><input style="width:600px;" name="txtOffer" type="text" id="txtOffer">
+		</tr>
+		</table>
+	
+	      
+    </tbody>
+
+  </table></center>
+  <br>
+  <center><input type="submit" name="Submit" value="Save"></center>
+</form>
+</body>
+</html>

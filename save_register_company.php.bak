@@ -1,0 +1,51 @@
+<?php
+	mysql_connect("localhost","root","");
+	mysql_select_db("sale_support");
+	
+	if(trim($_POST["txtCusid"]) == "")
+	{
+		echo "Please input Customer ID!";
+		exit();	
+	}
+	
+	if(trim($_POST["txtCompany"]) == "")
+	{
+		echo "Please input Company name!";
+		exit();	
+	}
+	
+	if(trim($_POST["txtNcus"]) == "")
+	{
+		echo "Please input Customer name!";
+		exit();	
+	}	
+	
+	if(trim($_POST["txtStatus"]) == "")
+	{
+		echo "Please input Status Customer!";
+		exit();	
+	}
+	
+	
+	$strSQL = "SELECT * FROM customer WHERE cus_id = '".trim($_POST['txtCusid'])."' ";
+	$objQuery = mysql_query($strSQL);
+	$objResult = mysql_fetch_array($objQuery);
+	if($objResult)
+	{
+			echo "Customer ID already exists!";
+	}
+	else
+	{	
+		
+		$strSQL = "INSERT INTO member (cus_id,name_company,name_cus,address,status,business_type) VALUES ('".$_POST["txtCusid"]."','".$_POST["txtCompany"]."', 
+		'".$_POST["txtNcus"]."','".$_POST["txtAd"]."','".$_POST["txtStatus"]."','".$_POST["txtBut"]."')";
+		$objQuery = mysql_query($strSQL);
+		
+		echo "Register Completed!<br>";		
+	
+		echo "<br> Go to <a href='index.php'>Login page</a>";
+		
+	}
+
+	mysql_close();
+?>

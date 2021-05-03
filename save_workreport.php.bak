@@ -1,0 +1,9 @@
+<?php
+$connect = mysql_connect("localhost","root","");
+	mysql_select_db("sale_support");
+echo $strSQL = "INSERT INTO customer (company_name,cus_name,cus_level,approver,personality,contact,detail,cus_project,volume,com_pro,com_source,com_cost,offer) VALUES ('".$_POST["txtCompany"]."','".$_POST["txtCusname"]."', 
+		'".$_POST["txtCuslevel"]."','".$_POST["txtApprover"]."','".$_POST["txtPersonal"]."','".$_POST["contact"]."','".$_POST["txtDetail"]."','".$_POST["txtProject"]."','".$_POST["txtVol"]."','".$_POST["txtPro"]."','".$_POST["txtSou"]."','".$_POST["txtCost"]."','".$_POST['txtOffer']."')";
+		$objQuery = mysql_query($strSQL, $connect);
+		echo "complete";
+		echo "<br> Go to <a href='index.php'>Login page</a>";
+?>

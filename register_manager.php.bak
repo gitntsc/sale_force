@@ -1,0 +1,110 @@
+<?php
+	session_start();
+	if($_SESSION['u_id'] == "")
+	{
+		echo "Please Login!";
+		exit();
+	}
+
+	if($_SESSION['level'] != "manager")
+	{
+		echo "This page for Manager";
+		exit();
+	}
+
+	include ='connect.php';
+	$strSQL = "SELECT * FROM member WHERE u_id = '".$_SESSION['u_id']."' ";
+	$objQuery = mysql_query($strSQL);
+	$objResult = mysql_fetch_array($objQuery);
+?>
+<html>
+<title>Fintsc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<center><form name="form1" method="post" action="save_register.php">
+  Register Form <br>
+  <table width="400" border="0" style="width: 400px">
+    <tbody>
+	<tr>
+        <td width="125"> &nbsp;user id</td>
+        <td width="180">
+          <input name="txtUserid" type="text" id="txtUserid" size="20">
+        </td>
+      </tr>
+      <tr>
+        <td width="125"> &nbsp;Username</td>
+        <td width="180">
+          <input name="txtUsername" type="text" id="txtUsername" size="20">
+        </td>
+      </tr>
+      <tr>
+        <td> &nbsp;Password</td>
+        <td><input name="txtPassword" type="password" id="txtPassword">
+        </td>
+      </tr>
+      <tr>
+        <td> &nbsp;Confirm Password</td>
+        <td><input name="txtConPassword" type="password" id="txtConPassword">
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;Name</td>
+        <td><input name="txtName" type="text" id="txtName" size="35"></td>
+      </tr>
+	  <tr>
+	  <tr>
+        <td>&nbsp;Surname</td>
+        <td><input name="txtSName" type="text" id="txtSName" size="35"></td>
+      </tr>
+	  <tr>
+        <td>&nbsp;Fname</td>
+        <td><input name="txtFName" type="text" id="txtFName" size="35"></td>
+      </tr>
+	  <tr>
+        <td>&nbsp;Department</td>
+        <td><input name="txtDepartment" type="text" id="txtDepartment" size="35"></td>
+      </tr>
+      <tr>
+        <td> &nbsp;level</td>
+        <td>
+          <select name="txtlevel" id="txtlevel">
+            <option value="admin">admin</option>
+            <option value="user">officer</option>
+			<option value="supervisor">supervisor</option>
+			<option value="manager">manager</option>
+			<option value="deputy manger">deputy manager</option>
+          </select>
+</td>
+      </tr>
+	  <tr>
+        <td> &nbsp;company</td>
+        <td>
+          <select name="ddlcompany" id="ddlcompany">
+            <option value="nutritionsc">nutritionsc</option>
+            <option value="nuevotec">nuevotec</option>
+			<option value="nutrition">nutrition</option>
+			<option value="nutrin">nutrin</option>
+          </select>
+</td>
+      </tr>
+	  </td>
+      </tr>
+	  <tr>
+        <td> &nbsp;section</td>
+        <td>
+          <select name="ddlsection" id="ddlsection">
+            <option value="saovory">saovory</option>
+            <option value="sweet">sweet</option>
+			<option value="feed">feed</option>
+			<option value="industry">industry</option>
+          </select>
+</td>
+      </tr>
+    </tbody>
+  </table></center>
+  <br>
+  <center><input type="submit" name="Submit" value="Save"></center>
+</form>
+</center>
+</body>
+</html>

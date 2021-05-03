@@ -1,0 +1,68 @@
+<?php
+	session_start();
+	if($_SESSION['u_id'] == "")
+	{
+		echo "Please Login!";
+		exit();
+	}
+
+
+include ='connect.php';
+	$strSQL = "SELECT * FROM member WHERE u_id = '".$_SESSION['u_id']."' ";
+	$objQuery = mysql_query($strSQL);
+	$objResult = mysql_fetch_array($objQuery);
+?>
+<html>
+<title>Register Customer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<center><form name="form1" method="post" action="save_register_company.php">
+  Register Form <br>
+  <table width="400" border="0" style="width: 400px">
+    <tbody>
+	<tr>
+        <td width="125"> &nbsp;Customer ID</td>
+        <td width="180">
+          <input name="txtCusid" type="text" id="txtCusid" size="20">
+        </td>
+      </tr>
+      <tr>
+        <td width="125"> &nbsp;Company Name</td>
+        <td width="180">
+          <input name="txtCompany" type="text" id="txtCompany" size="20">
+        </td>
+      </tr>
+      <tr>
+        <td> &nbsp;Name Customer</td>
+        <td><input name="txtNcus" type="text" id="txtNcus">
+        </td>
+      </tr>
+
+      <tr>
+        <td>&nbsp;status</td>
+        <td>
+		 <select name="txtStatus" id="txtStatus">
+            <option value="new">New</option>
+            <option value="old">Old</option>
+			</select></td>
+      </tr>
+	  <tr>
+	  <tr>
+        <td>&nbsp;Address</td>
+        <td><input name="txtAd" type="text" id="txtAd" size="100" style="width:300px"></td>
+      </tr>
+	   <tr>
+        <td width="125"> &nbsp;Business Type</td>
+        <td width="180">
+          <input name="txtBut" type="text" id="txtBut" size="20">
+        </td>
+      </tr>
+
+    </tbody>
+  </table></center>
+  <br>
+  <center><input type="submit" name="Submit" value="Save"></center>
+</form>
+</center>
+</body>
+</html>

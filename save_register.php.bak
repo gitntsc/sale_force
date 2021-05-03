@@ -1,0 +1,76 @@
+<?php
+	mysql_connect("localhost","root","");
+	mysql_select_db("sale_support");
+	
+	if(trim($_POST["txtUserid"]) == "")
+	{
+		echo "Please input Userid!";
+		exit();	
+	}
+	
+	if(trim($_POST["txtUsername"]) == "")
+	{
+		echo "Please input Username!";
+		exit();	
+	}
+	
+	if(trim($_POST["txtPassword"]) == "")
+	{
+		echo "Please input Password!";
+		exit();	
+	}	
+		
+	if($_POST["txtPassword"] != $_POST["txtConPassword"])
+	{
+		echo "Password not Match!";
+		exit();
+	}
+	
+	if(trim($_POST["txtName"]) == "")
+	{
+		echo "Please input Name!";
+		exit();	
+	}
+	if(trim($_POST["txtSName"]) == "")
+	{
+		echo "Please input Surname!";
+		exit();	
+	}
+	if(trim($_POST["txtFName"]) == "")
+	{
+		echo "Please input Fname!";
+		exit();	
+	}
+	if(trim($_POST["txtDepartment"]) == "")
+	{
+		echo "Please input department!";
+		exit();	
+	}
+	if(trim($_POST["txtlevel"]) == "")
+	{
+		echo "Please input level!";
+		exit();	
+	}
+	
+	$strSQL = "SELECT * FROM member WHERE Username = '".trim($_POST['txtUsername'])."' ";
+	$objQuery = mysql_query($strSQL);
+	$objResult = mysql_fetch_array($objQuery);
+	if($objResult)
+	{
+			echo "Username already exists!";
+	}
+	else
+	{	
+		
+		$strSQL = "INSERT INTO member (U_id,Username,Password,Name,Surname,Fname,Level,Company,Section) VALUES ('".$_POST["txtUserid"]."','".$_POST["txtUsername"]."', 
+		'".$_POST["txtPassword"]."','".$_POST["txtName"]."','".$_POST["txtSName"]."','".$_POST["txtFName"]."','".$_POST["txtlevel"]."','".$_POST["ddlcompany"]."','".$_POST["ddlsection"]."')";
+		$objQuery = mysql_query($strSQL);
+		
+		echo "Register Completed!<br>";		
+	
+		echo "<br> Go to <a href='index.php'>Login page</a>";
+		
+	}
+
+	mysql_close();
+?>

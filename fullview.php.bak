@@ -1,0 +1,118 @@
+<form action="testpage.php?case_id=<?php echo $_GET["case_id"];?>" name="frmEdit" method="post">
+<?php
+$objConnect = mysql_connect("localhost","root","") or die("Error Connect to Database");
+$objDB = mysql_select_db("sale_support");
+$strSQL = "SELECT * FROM customer WHERE case_id = '".$_GET["case_id"]."' ";
+$objQuery = mysql_query($strSQL);
+$objResult = mysql_fetch_array($objQuery);
+if(!$objResult)
+{
+	echo "Not found Case=".$_GET["case_id"];
+}
+else
+{
+?>
+<html>
+<title>รายงานการปฏิบัติงาน</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<center><form name="form1" method="post" action="save_workreport.php" enctype="multipart/form-data">
+  
+  <h1>รายงานการปฏิบัติงาน</h1> <br>
+   
+  <table width="800" border="1" style="width: 800px">
+    <tbody>
+      <tr>
+        <td width="100"> &nbsp;บริษัท</td><td width="100"><?php echo $objResult["company_name"];?></td>
+        <td  width="50">ชื่อลูกค้า</td><td width="100"><?php echo $objResult["cus_name"];?></td>
+		<td  width="100">ตำแหน่ง</td><td width="100"><?php echo $objResult["cus_level"];?></td>
+	</table>
+      </tr>
+	  <table width="800" border="1" style="width: 800px">
+	  <tr>
+		<td width="160">ผู้มีอำนาจการตัดสินใจ</td><td width="150" maxlength="50" size="18"><?php echo $objResult["approver"];?></td>
+		<td width="180">บุคลิกลักษณะลูกค้า</td><td width="130" maxlength="50" size="18"><?php echo $objResult["personality"];?></td>
+	  </tr>
+	  </table>
+	  <table width="800" border="0" style="width: 800px">
+	  <tr>
+		<td width="20%"> &nbsp;ลักษณะการติดต่อ</td>
+        <td>
+		<td width="150" maxlength="50" size="18"><?php echo $objResult["contact"];?></td>
+      </tr>
+	  </tbody>
+	  </table>
+	  <table width="800" border="1" style="width: 800px">
+		<tbody>
+	   <tr>
+        <td align="center" width="50%"> &nbsp;รายละเอียด</td><br>
+		</tr>
+		</table>
+        <table width="800" border="1" style="width: 800px">
+		<tr>
+		</td><td width="800"  size="100"><?php echo $objResult["Detail"];?></td>
+      </tr>
+	  </table>
+	 
+	  </table>
+	  <table width="800" border="1" style="width: 800px">
+    <tbody>
+      <tr>
+        <td align="center" width="100"> &nbsp;Project ลูกค้า</td>
+       <td width="150" maxlength="50" size="18"><?php echo $objResult["cus_project"];?></td>
+      </tr>
+	  </table>
+	  <table border="1" style="width:800px;">
+       <tr>
+        <td align="center" style="width:300px;"> &nbsp;คาดการณ์การสั่งซื้อสินค้า (สินค้า&ปริมาณ)</td>
+        <td><?php echo $objResult["volume"];?></td>
+		</tr>
+		</table>
+	 <table border="1" style="width:800px;">
+	  <tr>
+
+        <td align="left" style="width:300px;"> &nbsp;ข้อมูลคู่แข่ง</td>
+      </tr>
+	  </table>
+	   <table border="0" style="width:800px;">
+       <tr>
+        <td align="left" style="width:50px;"> &nbsp;สินค้า</td>
+        <td><?php echo $objResult["com_pro"];?></td>
+        </td>
+      </tr>
+	  </table>
+	  <table border="0" style="width:800px;">
+       <tr>
+        <td align="left" style="width:35px;"> &nbsp;Source</td>
+        <td><?php echo $objResult["com_source"];?></td>
+        </td>
+      </tr>
+	  </table>
+	  <table border="0" style="width:800px;">
+       <tr>
+        <td align="left" style="width:35px;"> &nbsp;ราคา</td>
+        <td><?php echo $objResult["com_cost"];?></td>
+        </td>
+      </tr>
+	  </table>
+		<table border="0" style="width:800px;">
+       <tr>
+        <td align="left" style="width:190px;"> &nbsp;ข้อเสนอแนะจากหัวหน้างาน</td>
+        <td><?php echo $objResult["offer"];?></td>
+		</tr>
+		</table>
+	
+	      
+    </tbody>
+
+  </table></center>
+  <br>
+  <center><input type="submit" name="Submit" value="Save"></center>
+</form>
+</body>
+</html>
+  <?php
+  }
+  mysql_close($objConnect);
+  ?>
+  </form>
