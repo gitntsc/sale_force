@@ -235,7 +235,7 @@
 	                <?php
 									if($_POST['name']=="" &&  $_POST['product']=="" && $_POST['name_contact']=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
 	                include 'connect.php';
-	         		echo $strSQL = "SELECT * FROM example where section = '".$_SESSION['section']."'order by strdate desc";
+	         		echo $strSQL = "SELECT * FROM example where section = '".$_SESSION['section']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 	                $objQuery2 = mysqli_query($objCon,$strSQL);
 
 	                ?>
@@ -332,7 +332,7 @@
 							}elseif($_POST['name']!=="" &&  $_POST['product']=="" && $_POST['name_contact']=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
 
 									include 'connect.php';
-								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' order by strdate desc";
+								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -422,7 +422,7 @@
 
 									include 'connect.php';
 								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and product = '".$_POST['product']."' and name_contact
-								= '".$_POST['name_contact']."' order by strdate desc";
+								= '".$_POST['name_contact']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -511,7 +511,7 @@
 								}elseif($_POST['name']!=="" &&  $_POST['product']!=="" && $_POST['name_contact']=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
 
 									include 'connect.php';
-							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and product = '".$_POST['product']."' order by strdate desc";
+							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and product = '".$_POST['product']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -601,7 +601,7 @@
 
 									include 'connect.php';
 								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and product = '".$_POST['product']."' and name_contact =
-								'".$_POST['name_contact']."' order by strdate desc";
+								'".$_POST['name_contact']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -690,7 +690,7 @@
 								}elseif($_POST['name']=="" &&  $_POST['product']!=="" && $_POST['name_contact']!=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
 
 									include 'connect.php';
-							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and product = '".$_POST['product']."' and name_contact = '".$_POST['name_contact']."' order by strdate desc";
+							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and product = '".$_POST['product']."' and name_contact = '".$_POST['name_contact']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -779,7 +779,7 @@
 								}elseif($_POST['name']=="" &&  $_POST['product']=="" && $_POST['name_contact']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
 
 									include 'connect.php';
-								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' order by strdate desc";
+								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -868,7 +868,7 @@
 								}elseif($_POST['name']!=="" &&  $_POST['product']=="" && $_POST['name_contact']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
 
 									include 'connect.php';
-								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and  username = '".$_POST['username']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' order by strdate desc";
+								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and  username = '".$_POST['username']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -957,7 +957,7 @@
 								}elseif($_POST['name']=="" &&  $_POST['product']!=="" && $_POST['name_contact']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
 
 									include 'connect.php';
-							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and product like '%".$_POST['product']."%' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' order by strdate desc";
+							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and product like '%".$_POST['product']."%' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -1046,7 +1046,7 @@
 								}elseif($_POST['name']=="" &&  $_POST['product']=="" && $_POST['name_contact']!=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
 
 									include 'connect.php';
-							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and name_contact = '".$_POST['name_contact']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' order by strdate desc";
+							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and name_contact = '".$_POST['name_contact']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -1135,7 +1135,7 @@
 								}elseif($_POST['name']=="" &&  $_POST['product']!=="" && $_POST['name_contact']=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
 
 									include 'connect.php';
-								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and product like '%".$_POST['product']."%' order by strdate desc";
+								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and product like '%".$_POST['product']."%' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -1225,7 +1225,7 @@
 
 									include 'connect.php';
 							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and product = '".$_POST['product']."'
-								and name_contact = '".$_POST['name_contact']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' order by strdate desc";
+								and name_contact = '".$_POST['name_contact']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>

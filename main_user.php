@@ -128,6 +128,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>ใบขอตัวอย่างสำหรับให้ลูกค้าเซ็น</a>
                   <ul class="sub-menu children dropdown-menu">
                     <li><i class="menu-icon fa fa-th"></i><a href="pre_finish_sig.php">ใบขอตัวอย่างที่อนุมัติแล้ว</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a href="signature_u.php">ดูใบอนุมัติตัวอย่างที่ลูกค้าเซ็นแล้ว</a></li>
                     
                     
                  

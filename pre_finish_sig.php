@@ -140,7 +140,7 @@ include 'connect.php';
 
 																				 $start = ($page - 1) * $perpage;
 
-																			echo	$sql = "SELECT * FROM example WHERE username = '".$_SESSION['username']."' and appt1 != '' and appt2 != '' and Draw = '' order by ex_id desc limit {$start} , {$perpage} ";
+																			echo	$sql = "SELECT * FROM example WHERE username = '".$_SESSION['username']."' and appt1 != 'null' and appt2 != 'null' and Draw = '' order by ex_id desc limit {$start} , {$perpage} ";
 																				 $query = mysqli_query($objCon, $sql);
 																				 ?>
 																			<table class="table">
@@ -185,7 +185,7 @@ include 'connect.php';
 	?>
 	</table>
 	<?php
-$sql2 = "SELECT * FROM example WHERE username = '".$_SESSION['username']."' and appt1 != '' and appt2 !='' and Draw = '' order by ex_id desc";
+$sql2 = "SELECT * FROM example WHERE username = '".$_SESSION['username']."' and appt1 != 'null' and appt2 !='null' and Draw = '' order by ex_id desc";
 $query2 = mysqli_query($objCon, $sql2);
 $total_record = mysqli_num_rows($query2);
 $total_page = ceil($total_record / $perpage);

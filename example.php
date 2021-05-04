@@ -99,16 +99,16 @@
                             <span class="input-group-text">ที่จัดส่ง</span>
                           </div>
                           <textarea class="form-control" aria-label="With textarea" name="address_send" id="address_send" placeholder="สถานที่ส่งตัวอย่าง"></textarea>
-                        </div>
+                        </div><br>
 												<div class="form-group">
                             <label>ชื่อผู้ติดต่อ</label>
                             <input name="name_contact" class="form-control" type="text" id="name_contact" size="20"  placeholder="ชื่อผู้ติดต่อ">
                         </div>
 
                         <br>
-                        <br>
-                        <label for="phone">Tel.</label><br><br>
-                        <input type="tel" id="tel" name="tel" placeholder="Telephone Number" ><br><br>
+                       
+                        <label for="phone">Tel.</label>
+                        <input class="form-control" type="tel" id="tel" name="tel" placeholder="Telephone Number" ><br><br>
 
 
 

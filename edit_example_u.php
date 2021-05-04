@@ -97,10 +97,10 @@ if($objResult2['appt1']=='null' && $objResult['level']=='manager')
                             <input name="name_contact" class="form-control" type="text" id="name_contact" size="20"  value="<?php echo $objResult2['name_contact'];?>">
                         </div>
 
-                      
+                        <br>
                         <br>
                         <label for="phone">Tel.</label><br><br>
-                        <input class="form-control"type="tel" id="tel" name="tel" value="<?php echo $objResult2['Tel'];?>" ><br><br>
+                        <input type="tel" id="tel" name="tel" value="<?php echo $objResult2['Tel'];?>" ><br><br>
 
 												<div class="form-group">
 												<label for="sel1">อนุมัติ</label>
@@ -143,7 +143,7 @@ if($objResult2['appt1']=='null' && $objResult['level']=='manager')
 </body>
 
 <?php
-}elseif($objResult2['appt1']=='null' && $objResult['level']=='officer'){
+}else{
  ?>
 
 <body class="bg-dark">
@@ -191,9 +191,17 @@ if($objResult2['appt1']=='null' && $objResult['level']=='manager')
                     <br>
                     <br>
                     <label for="phone">Tel.</label><br><br>
-                    <input class="form-control" type="tel" id="tel" name="tel" value="<?php echo $objResult2['Tel'];?>" ><br><br>
+                    <input type="tel" id="tel" name="tel" value="<?php echo $objResult2['Tel'];?>" ><br><br>
 
-                          
+                                            <div class="form-group">
+                                            <label for="sel1">อนุมัติ</label>
+                                            <select class="form-control" id="txtapp" name="txtapp">
+                                            <option value="approve">Approver</option>
+                                            <option value="null">Non approve</option>
+
+                                            </select>
+                                             <br><br>
+</div>
 
                                                     </br></br>
 
@@ -211,8 +219,6 @@ if($objResult2['appt1']=='null' && $objResult['level']=='manager')
 
                 </form>
 
-
-
          </div>
      </div>
  	</div>
@@ -226,77 +232,6 @@ if($objResult2['appt1']=='null' && $objResult['level']=='manager')
 
  </body>
  <?php
-}else{
-  ?>
- <body class="bg-dark">
-
-<div class="sufee-login d-flex align-content-center flex-wrap">
-    <div class="container">
-
-            <div class="login-logo">
-                <a href="index.html">
-                    <img class="align-content" src="images/logo_01.png" alt="">
-                </a>
-            </div>
-            <div class="login-form">
-                <form name="form1" method="post" action="save_ex_report.php">
-                                        <div class="form-group">
-                                                <label>รายการ</label><br>
-                                            <label><?php echo $objResult2['product'];?></lable>
-                                        </div>
-                    <div class="form-group">
-                        <label>ใช้ในผลิตภัณฑ์</label><br>
-                        <label><?php echo $objResult2['product_use'];?></label>
-                    </div>
-                    <div class="form-group">
-                        <label>จำนวน</label><br>
-                        <label><?php echo $objResult2['amount'];?></label>
-                    </div>
-
-
-
-                                            <label>วันที่</label><br>
-                                            <label><?php echo $objResult2['strdate'];?></label>
-                    <br>
-                    <br>
-                    <div class="form-group">
-                                                <label>สถานที่จัดส่ง</label><br>
-                      <label><?php echo $objResult2['address_send'];?></label>
-                    </div>
-                                            <div class="form-group">
-                        <label>ชื่อผู้ติดต่อ</label><br>
-                         <label><?php echo $objResult2['name_contact'];?></label>
-                    </div>
-
-                    <br>
-                    <br>
-                                            <div class="form-group">
-                         <label>ชื่อผู้ติดต่อ</label><br>
-                          <label><?php echo $objResult2['Tel'];?></label>
-                     </div><br>
-
-
-
-                    <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">บันทึก</button>
-
-
-                </form>
-
-
-    </div>
-</div>
-</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-<script src="assets/js/main.js"></script>
-
-</body>
-
-  <?php
 }
   ?>
 

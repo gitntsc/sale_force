@@ -52,7 +52,7 @@ date_default_timezone_set("Asia/Bangkok");
 
      <script>
      alert('Complete');
-     location.href='manager_page.php';
+     location.href='app1_ex.php';
      </script>
      <?php
  }elseif($_SESSION["level"] == "sec"){

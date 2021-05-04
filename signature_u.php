@@ -1,20 +1,39 @@
 <?php
-session_start();
+	session_start();
 	if($_SESSION['u_id'] == "")
 	{
 		echo "Please Login!";
-		exit();
+		header("location:index.php");
 	}
 
 
-	include 'connect.php';
+
+include 'connect.php';
 	$strSQL = "SELECT * FROM member WHERE u_id = '".$_SESSION['u_id']."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
-
-$username = $_SESSION["username"];
-
 ?>
+
+  <center><h1>Welcome to Manager Page!</h1> <br>
+  <table border="0" style="width: 200px">
+    <tbody>
+
+      <tr>
+
+        <td><h3 class="text-success"><?php echo $objResult["name"];?></h3></td>
+		<td><h3 class="text-success"><?php echo $objResult["surname"];?></h3></td>
+	</tr>
+
+
+
+    </tbody>
+  </table>
+  </center>
+   </div>
+  </div>
+</div>
+</body>
+</html>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -38,12 +57,16 @@ $username = $_SESSION["username"];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="fullcalendar/fullcalendar.min.css" />
+		<script src="fullcalendar/lib/jquery.min.js"></script>
+		<script src="fullcalendar/lib/moment.min.js"></script>
+		<script src="fullcalendar/fullcalendar.min.js"></script>
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+
 
    <style>
     #weatherWidget .currentDesc {
@@ -85,7 +108,7 @@ $username = $_SESSION["username"];
 
 <body>
     <!-- Left Panel -->
-		<?php
+    <?php
 		include "check_level.php";
 		?>
         </header>
@@ -94,155 +117,98 @@ $username = $_SESSION["username"];
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <div class="row">
 
-
-                    <div class="col-lg-4 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-2">
-                                        <i class="pe-7s-cart"></i>
-                                    </div>
-																		<?php
-
-																		$strSQL = "SELECT * FROM report";
-																		$objQuery2 = mysqli_query($objCon,$strSQL);
-																		$objResult2 = mysqli_num_rows($objQuery2);
-																		?>
-
-
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><?php echo $objResult2; ?></span></div>
-                                            <div class="stat-heading">จำนวนรายงานทั้งหมด</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-																		<?php
-
-																		$strSQL = "SELECT * FROM report WHERE username = '".$_SESSION['username']."' and(approve_stat != 'approve')";
-																		$objQuery3 = mysqli_query($objCon,$strSQL);
-																		$objResult3 = mysqli_num_rows($objQuery3);
-																		?>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><?php echo $objResult3; ?></span></div>
-                                            <div class="stat-heading">รายงานที่ยังไม่ได้อนุมัติ</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                        <i class="pe-7s-users"></i>
-                                    </div>
-																		<?php
-
-																		$strSQL = "SELECT * FROM customer";
-																		$objQuery4 = mysqli_query($objCon,$strSQL);
-																		$objResult4 = mysqli_num_rows($objQuery4);
-																		?>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><?php echo $objResult4;?></span></div>
-                                            <div class="stat-heading">Customer</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Widgets -->
                 <!--  Traffic  -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="box-title">อนุมัติใบขอตัวอย่าง</h4>
+                                <h4 class="box-title">List Reports </h4>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card-body">
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
-<?php
+																				<?php
+																				 include 'connect.php';
+																				 $perpage = 10;
+																				 if (isset($_GET['page'])) {
+																				 $page = $_GET['page'];
+																				 } else {
+																				 $page = 1;
+																				 }
 
-$strSQL = "SELECT * FROM example WHERE  appt1='approve' and appt2='null' and tech_name = '".$_SESSION['username']."' order by ex_id desc";
-$objQuery5 = mysqli_query($objCon,$strSQL);
+																				 $start = ($page - 1) * $perpage;
 
-
- ?>
-																				<table class="table">
-  <thead class="thead-dark">
+																			echo	$sql = "SELECT * FROM example WHERE username = '".$_SESSION['username']."' and appt1 != 'null' and appt2 != 'null' and Draw != '' order by ex_id desc limit {$start} , {$perpage} ";
+																				 $query = mysqli_query($objCon, $sql);
+																				 ?>
+																			<table class="table">
+<thead class="thead-dark">
 
 		<tr>
 
-		 <th width="98"> <div align="center">Example ID</div></th>
-	 <th width="198"> <div align="center">รายการ</div></th>
-		 <th width="198"> <div align="center">ใช้ในผลิตภัณฑ์</div></th>
-	 <th width="198"> <div align="center">จำนวน</div></th>
-   <th width="198"> <div align="center">วันที่</div></th>
-   <th width="198"> <div align="center">ที่อยู่</div></th>
-   <th width="198"> <div align="center">ชื่อผู้ติดต่อ</div></th>
-   <th width="198"> <div align="center">โทรศัพท์</div></th>
-   <th width="198"> <div align="center">แก้ไข</div></th>
+			<th > <div align="center">Username</div></th>
+		<th > <div align="center">Section</div></th>
+			<th > <div align="center">Product</div></th>
+		<th> <div align="center">Name Contact</div></th>
+		<th> <div align="center">Tech Name</div></th>
+    <th> <div align="center">Date</div></th>
+    <th> <div align="center">Product Use</div></th>
 
 
-
-
-
-	 </tr>
-		<?php
-		while($objResult5 = mysqli_fetch_array($objQuery5,MYSQLI_ASSOC))
-		{
-		?>
-		<tr>
-
-		 <td><div align="center"><?php echo $objResult5["ex_id"];?></div></td>
-		 <td><div align="center"><?php echo $objResult5["product"];?></div></td>
-		 <td><div align="center"><?php echo $objResult5["product_use"];?></div></td>
-	 <td><div align="center"><?php echo $objResult5["amount"];?></div></td>
-   <td><div align="center"><?php echo $objResult5["strdate"];?></div></td>
-   <td><div align="center"><?php echo $objResult5["address_send"];?></div></td>
-    <td><div align="center"><?php echo $objResult5["name_contact"];?></div></td>
-     <td><div align="center"><?php echo $objResult5["Tel"];?></div></td>
-
-
-
-
-	 <td align="center"><a href="pre2_example.php?ex_id=<?php echo $objResult5['ex_id'];?>">Edit</a></td>
-
-
-
+		 
+		<th> <div align="center">Fullview</div></th>
 
 		</tr>
-		  </tr>
-		<?php
-		}
-		?>
-		</table>
-		<?php
-		mysqli_close($objCon);
-		?>
+	<?php
+	while ($objResult2= mysqli_fetch_assoc($query))
+	{
+	?>
+		<tr>
+
+			<td><div align="center"><?php echo $objResult2["username"];?></div></td>
+			<td><div align="center"><?php echo $objResult2["section"];?></div></td>
+			<td><div align="center"><?php echo $objResult2["product"];?></div></td>
+		<td><div align="center"><?php echo $objResult2["name_contact"];?></div></td>
+		<td><div align="center"><?php echo $objResult2["tech_name"];?></div></td>
+
+    <td><div align="center"><?php echo $objResult2["strdate"];?></div></td>
+  <td><div align="center"><?php echo $objResult2["product_use"];?></div></td>
+			
+		<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult2["ex_id"];?>">Fullview</a></td>
+
+	</tr>
+		</tr>
+	<?php
+	}
+	?>
+	</table>
+	<?php
+$sql2 = "SELECT * FROM example WHERE username = '".$_SESSION['username']."' and appt1 != 'null' and appt2 !='null' and Draw != '' order by ex_id desc";
+$query2 = mysqli_query($objCon, $sql2);
+$total_record = mysqli_num_rows($query2);
+$total_page = ceil($total_record / $perpage);
+?>
+
+<nav>
+<center><ul class="pagination">
+<li>
+<a href="pre_finish_sig.php?page=1" aria-label="Previous">
+<span aria-hidden="true">&laquo;</span>
+</a>
+</li >
+<?php for($i=1;$i<=$total_page;$i++){ ?>
+<li><a href="pre_finish_sig.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>|
+<?php } ?>
+<li>
+<a href="pre_finish_sig.php?page=<?php echo $total_page;?>" aria-label="Next">
+<span aria-hidden="true">&raquo;</span>
+</a>
+</li>
+</ul>
+</nav>
+
                                     </div> <!-- /.card-body -->
                                 </div>
                             </div> <!-- /.row -->
@@ -252,106 +218,43 @@ $objQuery5 = mysqli_query($objCon,$strSQL);
                 </div>
                 <!--  /Traffic -->
                 <div class="clearfix"></div>
-                <!-- Orders -->
+
+
+
+								<?php
+
+
+									include 'connect.php';
+									$strSQL = "SELECT * FROM member WHERE u_id = '".$_SESSION['u_id']."' ";
+									$objQuery = mysqli_query($objCon,$strSQL);
+									$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+								?>
+
+								<!--  Form Report  -->
+
+								<div class="clearfix"></div>
 
 
 
 
 
-                <!-- /To Do and Live Chat -->
+
+
+
+
+
+
+
+
+
+
                 <!-- Calender Chart Weather  -->
-                  <!--   <div class="row">
-                    <div class="col-md-12 col-lg-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <!-- <h4 class="box-title">Chandler</h4> -->
-                                  <!--   <div class="calender-cont widget-calender">
-                                    <div id="calendar"></div>
-                                </div>
-                            </div>
-                        </div><!-- /.card -->
-                      <!--   </div>
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card ov-h">
-                            <div class="card-body bg-flat-color-2">
-                                <div id="flotBarChart" class="float-chart ml-4 mr-4"></div>
-                            </div>
-                            <div id="cellPaiChart" class="float-chart"></div>
-                        </div><!-- /.card -->
-                      <!--   </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card weather-box">
-                            <h4 class="weather-title box-title">Weather</h4>
-                            <div class="card-body">
-                                <div class="weather-widget">
-                                    <div id="weather-one" class="weather-one"></div>
-                                </div>
-                            </div>
-                        </div><!-- /.card -->
-                    <!--     </div>
-                <!--     </div>
-                <!-- /Calender Chart Weather -->
-                <!-- Modal - Calendar - Add New Event -->
-                  <!--   <div class="modal fade none-border" id="event-modal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><strong>Add New Event</strong></h4>
-                            </div>
-                            <div class="modal-body"></div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
-                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /#event-modal -->
-                <!-- Modal - Calendar - Add Category -->
-              <!--  <div class="modal fade none-border" id="add-category">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><strong>Add a category </strong></h4>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="control-label">Category Name</label>
-                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name"/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="control-label">Choose Category Color</label>
-                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                                                <option value="success">Success</option>
-                                                <option value="danger">Danger</option>
-                                                <option value="info">Info</option>
-                                                <option value="pink">Pink</option>
-                                                <option value="primary">Primary</option>
-                                                <option value="warning">Warning</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- /#add-category -->
-            </div>
-            <!-- .animated -->
-        </div>
-        <!-- /.content -->
-        <div class="clearfix"></div>
         <!-- Footer -->
         <footer class="site-footer">
             <div class="footer-inner bg-white">
@@ -391,8 +294,6 @@ $objQuery5 = mysqli_query($objCon,$strSQL);
     <script src="assets/js/init/weather-init.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-    <script src="assets/js/init/fullcalendar-init.js"></script>
 
     <!--Local Stuff-->
     <script>
