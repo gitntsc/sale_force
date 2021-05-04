@@ -242,35 +242,21 @@ include 'connect.php';
 
 																																						  <center>
 
+																																				<?php
+																																				$strSQL10 = "SELECT * FROM member where section = 'savorysc' or section = 'sweetsc' or section = 'tech'";
+																																				$objQuery10 = mysqli_query($objCon,$strSQL10);
 
+																																				 ?>
 																																						  <label for="sel1">Select User</label>
 																																						  <select name="ddlSelect2" id="ddlSelect2">
 																																						 	 <option value="">- Select -</option>
-																																						 	 <option value="tanapon">tanapon</option>
-																																						 	 <option value="chana">chana</option>
-																																						 	 <option value="thanarak">thanarak</option>
-																																						 	 <option value="thanawit">thanawit</option>
-																																						 	 <option value="watchara">watchara</option>
-																																						 	 <option value="kanokpan">kanokpan</option>
-
-																																						 	 <option value="wanna">wanna</option>
-																																						 	 <option value="vantanee">vantanee</option>
-																																						 	 <option value="chaninnart">chaninnart</option>
-																																						 	 <option value="chaiwat">chaiwat</option>
-																																						 	 
-																																						 
-																																						 	 <option value="worapon">worapon</option>
-																																						 	 <option value="wichudaporn">wichudaporn</option>
-
-																																						 	 <option value="phetlada">phetlada</option>
-																																						 	 <option value="chonnipa">chonnipa</option>
-																																						 	 <option value="irin">irin</option>
-																																						 	 <option value="piyada">piyada</option>
-																																						 	 <option value="siripan">siripan</option>
-																																							  <option value="kamornrath">kamornrath</option>
-																																						 	 <option value="patsaraporn">patsaraporn</option>
-																																						 	 <option value="sarasthamon">sarasthamon</option>
-                                                                               <option value="testuser">testuser</option>
+																																							 <?php
+																																								while($objResult10=mysqli_fetch_assoc($objQuery10)){
+																																							  ?>
+																																						 	 <option value="<?php echo $objResult10['username'];?>"><?php echo $objResult10['username'];?></option>
+																																						 <?php
+																																					 }
+																																						  ?>
 
 
 																																							</select></br>
@@ -344,7 +330,7 @@ include 'connect.php';
 																					 include 'connect.php';
 																	 $strSQL3 = "SELECT * FROM report WHERE section = '".$_POST["ddlSelect"]."' and username = '".$_POST["ddlSelect2"]."' and (exp_cost > 0 or rest_cost > 0 or other_cost > 0) and strdate Between '".$_POST["strdate"]."' and '".$_POST["lastdate"]."'";
 																					 $objQuery3 = mysqli_query($objCon,$strSQL3);
-																				
+
 																						?>
 
 
