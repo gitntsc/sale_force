@@ -53,7 +53,7 @@
 
 
                   <li><i class="menu-icon fa fa-th"></i><a href="app2_ex.php">อนุมัติใบขอตัวอย่าง</a></li>
-                  <li><i class="menu-icon fa fa-th"></i><a href="pre_check_signature.php">ใบขอตัวอย่างที่มีลายเซ็นลูกค้า</a></li>
+                  <li><i class="menu-icon fa fa-th"></i><a href="pre_check_signature.php">ใบขอตัวอย่างที่อนุมัติ</a></li>
 
 
 
