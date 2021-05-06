@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 	if($_SESSION['u_id'] == "")
@@ -94,84 +95,83 @@ $username = $_SESSION["username"];
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <div class="row">
+            <div class="row">
+	                    <div class="col-lg-12">
+	                        <div class="card">
+	                            <div class="card-body">
+	                                <h4 class="box-title">Search Section</h4>
+	                            </div>
+	                            <div class="row">
+	                                <div class="col-lg-12">
+	                                    <div class="card-body">
+	                                        <!-- <canvas id="TrafficChart"></canvas>   -->
+	                                        <div class="container">
+
+	                                        <center><div class="form-group">
+							<form name="frmSearch" method="post" action="<?=$_SERVER['SCRIPT_NAME'];?>">
+                <div class="form-row">
 
 
-                    <div class="col-lg-4 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-2">
-                                        <i class="pe-7s-cart"></i>
-                                    </div>
-																		<?php
 
-																		$strSQL = "SELECT * FROM report";
-																		$objQuery2 = mysqli_query($objCon,$strSQL);
-																		$objResult2 = mysqli_num_rows($objQuery2);
-																		?>
+					<?php
+					$strSQL20 = "SELECT * FROM member where company = 'nutritionsc' and section = '".$_SESSION['section']."'";
+					$objQuery20 = mysqli_query($objCon,$strSQL20);
 
+					?>
+                    <div class="form-group col-md-12">
+                        <label for="district">เลือกรายชื่อ</label>
+                        <select name="name" id="name" class="form-control">
+						<option value="">-</option>
+				<?php		while($objResult20 = mysqli_fetch_assoc($objQuery20)){ ?>
+                            <option value="<?php echo $objResult20['username']?>"><?php echo $objResult20['username'];?></option>
 
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><?php echo $objResult2; ?></span></div>
-                                            <div class="stat-heading">จำนวนรายงานทั้งหมด</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-																		<?php
-
-																		$strSQL = "SELECT * FROM report WHERE username = '".$_SESSION['username']."' and(approve_stat != 'approve')";
-																		$objQuery3 = mysqli_query($objCon,$strSQL);
-																		$objResult3 = mysqli_num_rows($objQuery3);
-																		?>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><?php echo $objResult3; ?></span></div>
-                                            <div class="stat-heading">รายงานที่ยังไม่ได้อนุมัติ</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                        <i class="pe-7s-users"></i>
-                                    </div>
-																		<?php
-
-																		$strSQL = "SELECT * FROM customer";
-																		$objQuery4 = mysqli_query($objCon,$strSQL);
-																		$objResult4 = mysqli_num_rows($objQuery4);
-																		?>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><?php echo $objResult4;?></span></div>
-                                            <div class="stat-heading">Customer</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+							<?php
+							}
+							?>
+                        </select>
                     </div>
                 </div>
+
+				
+
+																						<div class="form-group col-md-4">
+
+																						<label>Start Date</label><br>
+																						<input class= "form-control" name="strdate" type="date" id="strdate" placeholder="เลือกวันที่">
+																					</div>
+																						<div class="form-group col-md-4">
+																						<label>End Date</label><br>
+																						<input class= "form-control" name="lastdate" type="date" id="lastdate" placeholder="เลือกวันที่">
+
+																					</div>
+
+
+																					<br>
+																				<br>
+
+																				</div>
+				<div class = "form-row">
+				<div class="form-group col-md-12">
+				<label>กรุณากรอกวันที่ให้ครบ</label>
+				</div>
+				</div>
+				<div class = "form-row">
+				<div class="form-group col-md-12">
+				<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Search</button>
+				</div>
+				</div>
+
+
+
+																					</form>
+
+	                                      </div></center>
+	                                    </div>
+
+		</table>
+                <!-- Widgets  -->
+               
+                    
                 <!-- /Widgets -->
                 <!--  Traffic  -->
                 <div class="row">
@@ -186,8 +186,8 @@ $username = $_SESSION["username"];
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
 
 <?php
-$section = $_SESSION['section'];
-echo $strSQL5 = "SELECT * FROM qutation WHERE section = '".$section."' and status = 'non approve' order by qu_id desc";
+if($_POST['name']!=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
+    $strSQL5 = "SELECT * FROM qutation WHERE status = 'approve' order by qu_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 
@@ -228,7 +228,7 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 
 
-	 <td align="center"><a href="edit_quatation.php?qu_id=<?php echo $objResult5["qu_id"];?>">Edit</a></td>
+	 <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult5["qu_id"];?>">Edit</a></td>
 
 
 
@@ -239,8 +239,227 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
 		}
 		?>
 		</table>
+        <?php
+}elseif($_POST['name']!=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
+$strSQL5 = "SELECT * FROM qutation WHERE username = '".$_POST['name']."' and section = '".$_SESSION['section']."' and  strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and  status = 'approve' order by qu_id desc";
+$objQuery5 = mysqli_query($objCon,$strSQL5);
+
+
+ ?>
+<table class="table">
+  <thead class="thead-dark">
+
+		<tr>
+
+		 <th width="98"> <div align="center">ID</div></th>
+	 <th width="198"> <div align="center">บริษัท</div></th>
+		 <th width="198"> <div align="center">ผู้ใช้งาน</div></th>
+	 <th width="198"> <div align="center">ATTN</div></th>
+   <th width="198"> <div align="center">วันที่</div></th>
+    <th width="198"> <div align="center">Fax</div></th>
+   <th width="198"> <div align="center">Email</div></th>
+   <th width="198"> <div align="center">แก้ไข</div></th>
+
+
+
+
+
+	 </tr>
 		<?php
-		mysqli_close($objCon);
+		while($objResult5 = mysqli_fetch_array($objQuery5,MYSQLI_ASSOC))
+		{
+		?>
+		<tr>
+
+		 <td><div align="center"><?php echo $objResult5["qu_id"];?></div></td>
+		 <td><div align="center"><?php echo $objResult5["company"];?></div></td>
+		 <td><div align="center"><?php echo $objResult5["username"];?></div></td>
+     <td><div align="center"><?php echo $objResult5["attn"];?></div></td>
+   <td><div align="center"><?php echo $objResult5["strdate"];?></div></td>
+    <td><div align="center"><?php echo $objResult5["Fax"];?></div></td>
+     <td><div align="center"><?php echo $objResult5["Email"];?></div></td>
+
+
+
+
+	 <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult5["qu_id"];?>">Edit</a></td>
+
+
+
+
+		</tr>
+		  </tr>
+		<?php
+		}
+		?>
+		</table>
+        <?php
+}elseif($_POST['name']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
+    $strSQL5 = "SELECT * FROM qutation WHERE section = '".$_SESSION['section']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and  status = 'approve' order by qu_id desc";
+$objQuery5 = mysqli_query($objCon,$strSQL5);
+
+
+ ?>
+<table class="table">
+  <thead class="thead-dark">
+
+		<tr>
+
+		 <th width="98"> <div align="center">ID</div></th>
+	 <th width="198"> <div align="center">บริษัท</div></th>
+		 <th width="198"> <div align="center">ผู้ใช้งาน</div></th>
+	 <th width="198"> <div align="center">ATTN</div></th>
+   <th width="198"> <div align="center">วันที่</div></th>
+    <th width="198"> <div align="center">Fax</div></th>
+   <th width="198"> <div align="center">Email</div></th>
+   <th width="198"> <div align="center">แก้ไข</div></th>
+
+
+
+
+
+	 </tr>
+		<?php
+		while($objResult5 = mysqli_fetch_array($objQuery5,MYSQLI_ASSOC))
+		{
+		?>
+		<tr>
+
+		 <td><div align="center"><?php echo $objResult5["qu_id"];?></div></td>
+		 <td><div align="center"><?php echo $objResult5["company"];?></div></td>
+		 <td><div align="center"><?php echo $objResult5["username"];?></div></td>
+     <td><div align="center"><?php echo $objResult5["attn"];?></div></td>
+   <td><div align="center"><?php echo $objResult5["strdate"];?></div></td>
+    <td><div align="center"><?php echo $objResult5["Fax"];?></div></td>
+     <td><div align="center"><?php echo $objResult5["Email"];?></div></td>
+
+
+
+
+	 <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult5["qu_id"];?>">Edit</a></td>
+
+
+
+
+		</tr>
+		  </tr>
+		<?php
+		}
+		?>
+		</table>
+        <?php
+}elseif($_POST['name']!=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
+    $strSQL5 = "SELECT * FROM qutation WHERE username = '".$_POST['name']."' and section = '".$_SESSION['section']."'  and  status = 'approve' order by qu_id desc";
+$objQuery5 = mysqli_query($objCon,$strSQL5);
+
+
+ ?>
+<table class="table">
+  <thead class="thead-dark">
+
+		<tr>
+
+		 <th width="98"> <div align="center">ID</div></th>
+	 <th width="198"> <div align="center">บริษัท</div></th>
+		 <th width="198"> <div align="center">ผู้ใช้งาน</div></th>
+	 <th width="198"> <div align="center">ATTN</div></th>
+   <th width="198"> <div align="center">วันที่</div></th>
+    <th width="198"> <div align="center">Fax</div></th>
+   <th width="198"> <div align="center">Email</div></th>
+   <th width="198"> <div align="center">แก้ไข</div></th>
+
+
+
+
+
+	 </tr>
+		<?php
+		while($objResult5 = mysqli_fetch_array($objQuery5,MYSQLI_ASSOC))
+		{
+		?>
+		<tr>
+
+		 <td><div align="center"><?php echo $objResult5["qu_id"];?></div></td>
+		 <td><div align="center"><?php echo $objResult5["company"];?></div></td>
+		 <td><div align="center"><?php echo $objResult5["username"];?></div></td>
+     <td><div align="center"><?php echo $objResult5["attn"];?></div></td>
+   <td><div align="center"><?php echo $objResult5["strdate"];?></div></td>
+    <td><div align="center"><?php echo $objResult5["Fax"];?></div></td>
+     <td><div align="center"><?php echo $objResult5["Email"];?></div></td>
+
+
+
+
+	 <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult5["qu_id"];?>">Edit</a></td>
+
+
+
+
+		</tr>
+		  </tr>
+		<?php
+		}
+		?>
+		</table>
+        <?php
+}else{
+    $strSQL5 = "SELECT * FROM qutation WHERE section = '".$_SESSION['section']."' and status = 'approve' order by qu_id desc";
+    $objQuery5 = mysqli_query($objCon,$strSQL5);
+    
+    
+     ?>
+    <table class="table">
+      <thead class="thead-dark">
+    
+            <tr>
+    
+             <th width="98"> <div align="center">ID</div></th>
+         <th width="198"> <div align="center">บริษัท</div></th>
+             <th width="198"> <div align="center">ผู้ใช้งาน</div></th>
+         <th width="198"> <div align="center">ATTN</div></th>
+       <th width="198"> <div align="center">วันที่</div></th>
+        <th width="198"> <div align="center">Fax</div></th>
+       <th width="198"> <div align="center">Email</div></th>
+       <th width="198"> <div align="center">แก้ไข</div></th>
+    
+    
+    
+    
+    
+         </tr>
+            <?php
+            while($objResult5 = mysqli_fetch_array($objQuery5,MYSQLI_ASSOC))
+            {
+            ?>
+            <tr>
+    
+             <td><div align="center"><?php echo $objResult5["qu_id"];?></div></td>
+             <td><div align="center"><?php echo $objResult5["company"];?></div></td>
+             <td><div align="center"><?php echo $objResult5["username"];?></div></td>
+         <td><div align="center"><?php echo $objResult5["attn"];?></div></td>
+       <td><div align="center"><?php echo $objResult5["strdate"];?></div></td>
+        <td><div align="center"><?php echo $objResult5["Fax"];?></div></td>
+         <td><div align="center"><?php echo $objResult5["Email"];?></div></td>
+    
+    
+    
+    
+         <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult5["qu_id"];?>">Edit</a></td>
+    
+    
+    
+    
+            </tr>
+              </tr>
+            <?php
+            }
+            ?>
+            </table>
+            <?php
+    }
+        ?>
+		<?php
+		mysqli_close($objCon); 
 		?>
                                     </div> <!-- /.card-body -->
                                 </div>

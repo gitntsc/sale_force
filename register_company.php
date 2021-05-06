@@ -173,6 +173,13 @@ include 'connect.php';
                       <textarea class="form-control" aria-label="With textarea" name="txtAd" id="txtAd" placeholder="Address"></textarea>
                     </div>
                   </br>
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Address2</span>
+                      </div>
+                      <textarea class="form-control" aria-label="With textarea" name="txtAd2" id="txtAd2" placeholder="Address2"></textarea>
+                    </div>
+                  </br>
 										<div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">

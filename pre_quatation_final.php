@@ -289,7 +289,7 @@ if($objResult2['status']=='non approve'){
                           </tr>
                           <tr>
 
-                            <<td><label><?php echo $objResult2['amount5'];?></label></td>
+                            <td><label><?php echo $objResult2['amount5'];?></label></td>
                             <td><label><?php echo $objResult2['product5'];?></label></td>
                             <td><label><?php echo $objResult2['produce5'];?></label></td>
                             <td><label><?php echo $objResult2['price5'];?></label></td>

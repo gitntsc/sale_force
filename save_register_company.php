@@ -52,8 +52,8 @@
 	else
 	{
 		$_POST["username"]=$_SESSION['username'];
-	$strSQL = "INSERT INTO customer (name_company,name_cus,address,status,Username,leader,province,business_type,crt_time3) VALUES ('".$_POST["txtCompany"]."',
-		'".$_POST["txtNcus"]."','".$_POST["txtAd"]."','".$_POST["txtStatus"]."','".$_POST["username"]."','".$_POST["leader"]."','".$_POST["txtProv"]."','".$_POST["txtBut"]."','".$_POST["time"]."')";
+	$strSQL = "INSERT INTO customer (name_company,name_cus,address,address2,status,Username,leader,province,business_type,crt_time3) VALUES ('".$_POST["txtCompany"]."',
+		'".$_POST["txtNcus"]."','".$_POST["txtAd"]."','".$_POST["txtAd2"]."','".$_POST["txtStatus"]."','".$_POST["username"]."','".$_POST["leader"]."','".$_POST["txtProv"]."','".$_POST["txtBut"]."','".$_POST["time"]."')";
 		$objQuery = mysqli_query($objCon,$strSQL);
 		if($objQuery)
 		{
