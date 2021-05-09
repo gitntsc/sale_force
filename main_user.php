@@ -129,6 +129,7 @@
                   <ul class="sub-menu children dropdown-menu">
                     <li><i class="menu-icon fa fa-th"></i><a href="pre_finish_sig.php">ใบขอตัวอย่างที่อนุมัติแล้ว</a></li>
                     <li><i class="menu-icon fa fa-th"></i><a href="signature_u.php">ดูใบอนุมัติตัวอย่างที่ลูกค้าเซ็นแล้ว</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a href="search_ex_u.php">ค้นหาประวัติใบอนุมัติตัวอย่าง</a></li>
                     
                     
                  

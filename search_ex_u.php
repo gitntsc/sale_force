@@ -153,7 +153,7 @@ include "check_level.php";
 
 <div class = "form-row">
 <div class="form-group col-md-6">
-<input class="form-control" name="product" id ="product" placeholder="ผลิตภัณฑ์๓หๆ">
+<input class="form-control" name="product" id ="product" placeholder="ผลิตภัณฑ์">
 
 
 </div>
