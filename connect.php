@@ -1,8 +1,8 @@
 <?php
    $serverName = "localhost";
-	$userName = "nutriti_sup";
-	$userPassword = "hWkS!}eU(E$3";
-	$dbName = "nutriti_support";
+	$userName = "root";
+	$userPassword = "";
+	$dbName = "sale_support";
 
 	$objCon = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 	mysqli_set_charset($objCon, "utf8");

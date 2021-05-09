@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost","nutriti_sup","hWkS!}eU(E$3","nutriti_support") ;
+$conn = mysqli_connect("localhost","root","","sale_support") ;
 
 if (!$conn)
 {

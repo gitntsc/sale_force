@@ -506,7 +506,7 @@ $objQuery = mysqli_query($objCon,$strSQL);
                         Copyright &copy; 2018 Ela Admin
                     </div>
                     <div class="col-sm-6 text-right">
-                        จัดทำโดย น้องมอส</a>
+                        NutritionSC</a>
                     </div>
                 </div>
             </div>
