@@ -140,7 +140,7 @@ include 'connect.php';
 
 																				 $start = ($page - 1) * $perpage;
 
-																			echo	$sql = "SELECT * FROM example WHERE username = '".$_SESSION['username']."' and appt1 != 'null' and appt2 != 'null' and Draw = '' order by ex_id desc limit {$start} , {$perpage} ";
+																			echo	$sql = "SELECT * FROM qutation WHERE username = '".$_SESSION['username']."' and status = 'approve' order by qu_id desc limit {$start} , {$perpage} ";
 																				 $query = mysqli_query($objCon, $sql);
 																				 ?>
 																			<table class="table">
@@ -148,13 +148,13 @@ include 'connect.php';
 
                             <tr>
 
-                            <th > <div align="center">Username</div></th>
-                            <th > <div align="center">Section</div></th>
-                            <th > <div align="center">Product</div></th>
-                            <th> <div align="center">Name Contact</div></th>
-                            <th> <div align="center">Tech Name</div></th>
-                            <th> <div align="center">Date</div></th>
-                            <th> <div align="center">Product Use</div></th>
+                            <th > <div align="center">Quatation ID</div></th>
+                            <th > <div align="center">Attn</div></th>
+                            <th > <div align="center">Company</div></th>
+                            <th> <div align="center">username</div></th>
+                            <th> <div align="center">วันที่</div></th>
+                            <th> <div align="center">การส่ง</div></th>
+                            <th> <div align="center">สถานะ</div></th>
 
 
 		 
@@ -167,16 +167,16 @@ include 'connect.php';
                             ?>
                             <tr>
 
+                            <td><div align="center"><?php echo $objResult2["qu_id"];?></div></td>
+                            <td><div align="center"><?php echo $objResult2["attn"];?></div></td>
+                            <td><div align="center"><?php echo $objResult2["company"];?></div></td>
                             <td><div align="center"><?php echo $objResult2["username"];?></div></td>
-                            <td><div align="center"><?php echo $objResult2["section"];?></div></td>
-                            <td><div align="center"><?php echo $objResult2["product"];?></div></td>
-                            <td><div align="center"><?php echo $objResult2["name_contact"];?></div></td>
-                            <td><div align="center"><?php echo $objResult2["tech_name"];?></div></td>
-
                             <td><div align="center"><?php echo $objResult2["strdate"];?></div></td>
-                            <td><div align="center"><?php echo $objResult2["product_use"];?></div></td>
 
-                            <td align="center"><a href="finish_sig.php?ex_id=<?php echo $objResult2["ex_id"];?>">Fullview</a></td>
+                            <td><div align="center"><?php echo $objResult2["kind_send"];?></div></td>
+                            <td><div align="center"><?php echo $objResult2["status"];?></div></td>
+
+                            <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult2["qu_id"];?>">Fullview</a></td>
 
                             </tr>
                             </tr>
@@ -185,7 +185,7 @@ include 'connect.php';
 	?>
 	</table>
 	<?php
-$sql2 = "SELECT * FROM example WHERE username = '".$_SESSION['username']."' and appt1 != 'null' and appt2 !='null' and Draw = '' order by ex_id desc";
+$sql2 = "SELECT * FROM qutation WHERE username = '".$_SESSION['username']."' and status = 'approve' order by qu_id desc";
 $query2 = mysqli_query($objCon, $sql2);
 $total_record = mysqli_num_rows($query2);
 $total_page = ceil($total_record / $perpage);
