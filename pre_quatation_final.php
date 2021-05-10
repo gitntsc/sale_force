@@ -114,7 +114,7 @@ if($objResult2['status']=='non approve'){
                         </tr>
                         <tr>
 
-                          <<td><input name="amount5" class="form-control" type="text" id="amount5" size="3"  value="<?php echo $objResult2['amount5'];?>"></td>
+                          <td><input name="amount5" class="form-control" type="text" id="amount5" size="3"  value="<?php echo $objResult2['amount5'];?>"></td>
                           <td><input name="product5" class="form-control" type="text" id="product5" size="20"  value="<?php echo $objResult2['product5'];?>"></td>
                           <td><input name="produce5" class="form-control" type="text" id="produce5" size="5" value="<?php echo $objResult2['produce5'];?>"></td>
                           <td><input name="price5" class="form-control" type="text" id="price5" size="3"  value="<?php echo $objResult2['price5'];?>"></td>
