@@ -133,13 +133,25 @@
 										<li><i class="fa fa-table"></i><a href="order_app_all.php">ดูรายงานที่อนุมัติแล้ว</a></li>
                                         <li><i class="menu-icon fa fa-th"></i><a href="pre_quatation_mgr.php">อนุมัติใบเสนอราคา</a></li>
                                         <li><i class="menu-icon fa fa-th"></i><a href="app1_ex.php">อนุมัติใบขอตัวอย่าง</a></li>
-										<li><i class="fa fa-table"></i><a href="search_com.php">ค้นหาประวัติจากรายชื่อลูกค้า</a></li>
-                                        <li><i class="fa fa-table"></i><a href="search_ex_mgr.php">ค้นหาประวัติใบขอตัวอย่าง</a></li>
+									
+                                        
                                         <li><i class="fa fa-table"></i><a href="pre_finish_sig.php">ใบขอตัวอย่างที่อนุมัติแล้ว</a></li>
 
 
 					</ul>
 							</li>
+                            <li class="menu-item-has-children dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>ค้นหาประวัติ</a>
+									<ul class="sub-menu children dropdown-menu">
+										
+										<li><i class="fa fa-table"></i><a href="search_com.php">ค้นหาประวัติจากรายชื่อลูกค้า</a></li>
+                                        <li><i class="fa fa-table"></i><a href="search_ex_mgr.php">ค้นหาประวัติใบขอตัวอย่าง</a></li>
+                                        <li><i class="fa fa-table"></i><a href="search_qu_mgr.php">ค้นหาประวัติใบเสนอราคา</a></li>
+
+
+					</ul>
+							</li>
+
 
             <?php
           }

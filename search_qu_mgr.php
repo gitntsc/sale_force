@@ -4,7 +4,7 @@
 		if($_SESSION['u_id'] == "")
 		{
 			echo "Please Login!";
-			exit();
+			quit();
 		}
 
 
@@ -73,7 +73,7 @@
 		  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-	    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+	    <!-- <script type="tqut/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 	    <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
 	    <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
 
@@ -100,7 +100,7 @@
 	        .chart-container {
 	            display: table;
 	            min-width: 270px ;
-	            text-align: left;
+	            tqut-align: left;
 	            padding-top: 10px;
 	            padding-bottom: 10px;
 	        }
@@ -252,56 +252,12 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																			        <div class="container">
 
-																			                <div class="login-logo">
-																			                    <a href="index.html">
-																			                        <img class="align-content" src="images/logo_01.png" alt="">
-																			                    </a>
-																			                </div>
-																			                <div class="login-form">
-	                                                      <table class="table">
-	                                                      <thead class="thead-dark">
-
-
-	                                                        <tr>
-																														<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-
-	                                                    		</tr>
-	                                                    	<?php
-	                                                    	while($objResult2 = mysqli_fetch_array($objQuery2))
-	                                                    	{
-	                                                    	?>
-	                                                    		<tr>
-																														<td><div align="center"><?php echo $objResult2["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult2["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult2["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult2["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult2["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult2["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult2["ex_id"];?>">view</a></td>
-
-	                                                    	</tr>
-	                                                    		</tr>
-	                                                    	<?php
-	                                                    	}
-
-	                                                    	?>
-	                                                    	</table>
-
-	                                                      </tr>
-																			            </div>
+																					<?php
+																								include_once ('form_qu.php');
+																								?>
 																			        </div>
 																			    </div>
 																				</div>
@@ -349,57 +305,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -422,7 +338,7 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 
                                                         include 'connect.php';
                                           echo $strSQL3 = "SELECT * FROM qutation where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and (product1 like '%".$_POST['product']."%' or product2 like '%".$_POST['product']."%' or product3  like '%".$_POST['product']."%'
-                                          or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%' and company like '%".$_POST['name_contact']."%')  and status = 'approve' order by strdate desc";
+                                          or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%') and company like '%".$_POST['name_contact']."%'  and status = 'approve' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -439,57 +355,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -512,7 +388,7 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 
 									include 'connect.php';
 							echo	 $strSQL3 = "SELECT * FROM qutation where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and (product1 like '%".$_POST['product']."%' or product2 like '%".$_POST['product']."%' or product3  like '%".$_POST['product']."%'
-                                                                                                  or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%' and company like '%".$_POST['name_contact']."%') and status = 'approve' order by strdate desc";
+                            or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%') and company like '%".$_POST['name_contact']."%') and status = 'approve' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -521,6 +397,7 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 									<div class="row">
 											<div class="col-lg-12">
 													<div class="card">
+													
 															<div class="card-body">
 																	<h4 class="box-title">Form Report </h4>
 															</div>
@@ -529,57 +406,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																								<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -601,8 +438,8 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 								}elseif($_POST['name']!=="" &&  $_POST['product']!=="" && $_POST['name_contact']!=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
 
 									include 'connect.php';
-								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and (product1 like '%".$_POST['product']."%' or product2 like '%".$_POST['product']."%' or product3  like '%".$_POST['product']."%'
-                                                                                                                or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%') and company like '%".$_POST['name_contact']."%' and status = 'approve' order by strdate desc";
+								echo $strSQL3 = "SELECT * FROM qutation where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and (product1 like '%".$_POST['product']."%' or product2 like '%".$_POST['product']."%' or product3  like '%".$_POST['product']."%'
+                                or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%') and company like '%".$_POST['name_contact']."%' and status = 'approve' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -619,57 +456,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -692,7 +489,7 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 
 									include 'connect.php';
 							echo	 $strSQL3 = "SELECT * FROM qutation where section = '".$_SESSION['section']."' and (product1 like '%".$_POST['product']."%' or product2 like '%".$_POST['product']."%' or product3  like '%".$_POST['product']."%'
-                                                                                                  or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%' and company like '%".$_POST['name_contact']."%'  and status = 'approve' order by strdate desc";
+                         or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%') and company like '%".$_POST['name_contact']."%'  and status = 'approve' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -709,57 +506,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -781,7 +538,7 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 								}elseif($_POST['name']=="" &&  $_POST['product']=="" && $_POST['name_contact']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
 
 									include 'connect.php';
-								echo $strSQL3 = "SELECT * FROM qutition where section = '".$_SESSION['section']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and approve order by strdate desc";
+								echo $strSQL3 = "SELECT * FROM qutation where section = '".$_SESSION['section']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and status = 'approve' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -798,57 +555,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -887,57 +604,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -959,7 +636,8 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 								}elseif($_POST['name']=="" &&  $_POST['product']!=="" && $_POST['name_contact']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
 
 									include 'connect.php';
-							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and product like '%".$_POST['product']."%' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
+							echo	 $strSQL3 = "SELECT * FROM qutation where section = '".$_SESSION['section']."' and (product1 like '%".$_POST['product']."%' or product2 like '%".$_POST['product']."%' or product3  like '%".$_POST['product']."%'
+							or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%') and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and status = 'approve' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -976,57 +654,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -1045,10 +683,11 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 									<div class="clearfix"></div>
 									<?php
 
-								}elseif($_POST['name']=="" &&  $_POST['product']=="" && $_POST['name_contact']!=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
+								}elseif($_POST['name']=="" &&  $_POST['product']!=="" && $_POST['name_contact']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
 
 									include 'connect.php';
-							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and name_contact = '".$_POST['name_contact']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
+							echo	 $strSQL3 = "SELECT * FROM qutation where section = '".$_SESSION['section']."' and (product1 like '%".$_POST['product']."%' or product2 like '%".$_POST['product']."%' or product3  like '%".$_POST['product']."%'
+							or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%') and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and status = 'approve' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -1065,57 +704,66 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
+																							</div>
+																					</div>
+																				</div>
+																			</div>
 
 
 
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
+																			</div> <!-- /.card-body -->
+																	</div>
+															</div> <!-- /.row -->
+															<div class="card-body"></div>
+													</div>
+											</div><!-- /# column -->
+									</div>
+									<!--  /Form Report -->
+									<div class="clearfix"></div>
+									<?php
 
-																												</tr>
-																													</tr>
-																												<?php
-																												}
+								}elseif($_POST['name']=="" &&  $_POST['product']=="" && $_POST['name_contact']!=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
 
-																												?>
-																												</table>
+									include 'connect.php';
+							echo	 $strSQL3 = "SELECT * FROM qutation where section = '".$_SESSION['section']."' and attn like '%".$_POST['name_contact']."%'  and status = 'approve' order by strdate desc";
+									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
-																												</tr>
-																									</div>
+									?>
+
+									<!--  Form Report  -->
+									<div class="row">
+											<div class="col-lg-12">
+													<div class="card">
+															<div class="card-body">
+																	<h4 class="box-title">Form Report </h4>
+															</div>
+															<div class="row">
+																	<div class="col-lg-12">
+																			<div class="card-body">
+																					<!-- <canvas id="TrafficChart"></canvas>   -->
+
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
+																							<div class="container">
+
+																											<div class="login-logo">
+																													<a href="indqu.html">
+																															<img class="align-content" src="images/logo_01.png" alt="">
+																													</a>
+																											</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -1137,7 +785,8 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 								}elseif($_POST['name']=="" &&  $_POST['product']!=="" && $_POST['name_contact']=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
 
 									include 'connect.php';
-								echo $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and product like '%".$_POST['product']."%' and appt1 !='null' and appt2 != 'null' order by strdate desc";
+								echo $strSQL3 = "SELECT * FROM quample where section = '".$_SESSION['section']."' and (product1 like '%".$_POST['product']."%' or product2 like '%".$_POST['product']."%' or product3  like '%".$_POST['product']."%'
+								or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%') status = 'approve' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -1154,57 +803,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -1226,8 +835,9 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 								}else{
 
 									include 'connect.php';
-							echo	 $strSQL3 = "SELECT * FROM example where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and product = '".$_POST['product']."'
-								and name_contact = '".$_POST['name_contact']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
+							echo	 $strSQL3 = "SELECT * FROM quample where section = '".$_SESSION['section']."' and username = '".$_POST['name']."' and (product1 like '%".$_POST['product']."%' or product2 like '%".$_POST['product']."%' or product3  like '%".$_POST['product']."%'
+							or product4 like '%".$_POST['product']."%' or product5 like '%".$_POST['product']."%')
+								and attn = '".$_POST['name_contact']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and status = '' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
 									?>
@@ -1244,57 +854,17 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 																			<div class="card-body">
 																					<!-- <canvas id="TrafficChart"></canvas>   -->
 
-																					<div class="sufee-login d-flex align-content-center flex-wrap">
+																					<div class="sufee-login d-flqu align-content-center flqu-wrap">
 																							<div class="container">
 
 																											<div class="login-logo">
-																													<a href="index.html">
+																													<a href="indqu.html">
 																															<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
-																											<div class="login-form">
-																												<table class="table">
-																												<thead class="thead-dark">
-
-
-																													<tr>
-
-																													<th width="91"> <div align="center">username</div></th>
-																														<th width="98"> <div align="center">section</div></th>
-																													<th width="198"> <div align="center">company</div></th>
-																													<th width="198"> <div align="center">name contact</div></th>
-																													<th width="198"> <div align="center">product</div></th>
-																													<th width="198"> <div align="center">Technicals</div></th>
-																													<th width="97"> <div align="center">view</div></th>
-
-																													</tr>
-																												<?php
-																												while($objResult3 = mysqli_fetch_array($objQuery3))
-																												{
-																												?>
-																													<tr>
-
-																													<td><div align="center"><?php echo $objResult3["username"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["section"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["company"];?></div></td>
-																														<td><div align="center"><?php echo $objResult3["name_contact"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["product"];?></div></td>
-																													<td><div align="center"><?php echo $objResult3["tech_name"];?></div></td>
-
-
-
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
-																												</tr>
-																													</tr>
-																												<?php
-																												}
-
-																												?>
-																												</table>
-
-																												</tr>
-																									</div>
+																											<?php
+																								include_once ('form_qu.php');
+																								?>
 																							</div>
 																					</div>
 																				</div>
@@ -1343,7 +913,7 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 	                    <div class="col-sm-6">
 	                        Copyright &copy; 2018 Ela Admin
 	                    </div>
-	                    <div class="col-sm-6 text-right">
+	                    <div class="col-sm-6 tqut-right">
 	                        Designed by <a href="https://colorlib.com">Colorlib</a>
 	                    </div>
 	                </div>
@@ -1496,7 +1066,7 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 	                    if(data.type === 'line' || data.type === 'area') {
 	                        data.element.animate({
 	                            d: {
-	                                begin: 2000 * data.index,
+	                                begin: 2000 * data.indqu,
 	                                dur: 2000,
 	                                from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
 	                                to: data.path.clone().stringify(),
@@ -1544,7 +1114,7 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 	                    options: {
 	                        responsive: true,
 	                        tooltips: {
-	                            mode: 'index',
+	                            mode: 'indqu',
 	                            intersect: false
 	                        },
 	                        hover: {
