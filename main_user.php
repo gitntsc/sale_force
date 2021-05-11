@@ -114,7 +114,7 @@
                     <li><i class="menu-icon fa fa-th"></i><a href="pre_edit_quatation_u.php">แก้ไขใบเสนอราคา</a></li>
                     <li><i class="menu-icon fa fa-th"></i><a href="example_report_u.php">แก้ไขใบขอตัวอย่าง</a></li>
                     <li><i class="fa fa-puzzle-piece"></i><a href="edit_company.php">แก้ไขทะเบียนบริษัท</a></li>
-          </ul>
+            </ul>
               </li>
               <li class="menu-item-has-children dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>เมนูการลบข้อมูล</a>
@@ -125,18 +125,20 @@
           </ul>
               </li>
               <li class="menu-item-has-children dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>ใบขอตัวอย่างสำหรับให้ลูกค้าเซ็น</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>ใบขอตัวอย่างสำหรับลูกค้า</a>
                   <ul class="sub-menu children dropdown-menu">
                     <li><i class="menu-icon fa fa-th"></i><a href="pre_finish_sig.php">ใบขอตัวอย่างที่อนุมัติแล้ว</a></li>
                     <li><i class="menu-icon fa fa-th"></i><a href="signature_u.php">ดูใบอนุมัติตัวอย่างที่ลูกค้าเซ็นแล้ว</a></li>
-                    <li><i class="menu-icon fa fa-th"></i><a href="search_ex_u.php">ค้นหาประวัติใบอนุมัติตัวอย่าง</a></li>
-                    <li><i class="menu-icon fa fa-th"></i><a href="search_ex_u.php">ค้นหาประวัติใบอนุมัติตัวอย่าง</a></li>
+                  
+                   
                     
-                    
-                 
-
-          </ul>
+                    </ul>
+          <li class="menu-item-has-children dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>ดูข้อมูลย้อนหลัง</a>
+                  <ul class="sub-menu children dropdown-menu">
+                  <li><i class="menu-icon fa fa-th"></i><a href="search_ex_u.php">ค้นหาประวัติใบอนุมัติตัวอย่าง</a></li>
               </li>
+              </ul>
               <li class="menu-item-has-children dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>ปฏิทิน</a>
                   <ul class="sub-menu children dropdown-menu">
