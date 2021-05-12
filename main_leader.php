@@ -26,6 +26,8 @@
                       <li><i class="fa fa-puzzle-piece"></i><a href="register_company.php">ลงทะเบียนบริษัท</a></li>
 											 <li><i class="menu-icon fa fa-th"></i><a href="register_pre.php">รายการรายสัปดาห์</a></li>
 											 <li><i class="menu-icon fa fa-th"></i><a href="work_report_in.php">รายงานการทำงานภายใน</a></li>
+                                             <li><i class="menu-icon fa fa-th"></i><a href="quatation.php">ใบเสนอราคา</a></li>
+                     <li><i class="menu-icon fa fa-th"></i><a href="example.php">ใบขอตัวอย่าง</a></li>
 										 	</ul>
               </li>
 							<li class="menu-item-has-children dropdown">
@@ -34,6 +36,8 @@
 										<li><i class="menu-icon fa fa-th"></i><a href="work_report_u.php">แก้ไขรายงานการพบลูกค้า</a></li>
 										<li><i class="menu-icon fa fa-th"></i><a href="pre_view_u.php">แก้ไขรายการรายสัปดาห์</a></li>
 										<li><i class="fa fa-puzzle-piece"></i><a href="edit_company.php">แก้ไขทะเบียนบริษัท</a></li>
+                                        <li><i class="menu-icon fa fa-th"></i><a href="example_report_u.php">แก้ไขใบขอตัวอย่าง</a></li>
+                    <li><i class="fa fa-puzzle-piece"></i><a href="edit_company.php">แก้ไขทะเบียนบริษัท</a></li>
 					</ul>
 							</li>
 							<li class="menu-item-has-children dropdown">
@@ -54,6 +58,13 @@
 
 					</ul>
 							</li>
+                            <li class="menu-item-has-children dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>ดูข้อมูลย้อนหลัง</a>
+                  <ul class="sub-menu children dropdown-menu">
+                  <li><i class="menu-icon fa fa-th"></i><a href="search_ex_u.php">ค้นหาประวัติใบอนุมัติตัวอย่าง</a></li>
+                  <li><i class="menu-icon fa fa-th"></i><a href="search_qu_u.php">ค้นหาประวัติใบเสนอราคา</a></li>
+              </li>
+              </ul>
                             <?php
                     if($_SESSION['section']=="tech"){
                         ?>

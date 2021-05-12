@@ -96,7 +96,7 @@ $objResult10 = mysqli_fetch_array($objQuery10,MYSQLI_ASSOC);
  ?>
 
 <?php
-echo $strSQL21 = "SELECT * FROM example where ex_id = '".$_GET['ex_id']."'";
+ $strSQL21 = "SELECT * FROM example where ex_id = '".$_GET['ex_id']."'";
 $objQuery21 = mysqli_query($objCon,$strSQL21);
 $objResult21 = mysqli_fetch_array($objQuery21,MYSQLI_ASSOC);
 

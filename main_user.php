@@ -137,7 +137,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>ดูข้อมูลย้อนหลัง</a>
                   <ul class="sub-menu children dropdown-menu">
                   <li><i class="menu-icon fa fa-th"></i><a href="search_ex_u.php">ค้นหาประวัติใบอนุมัติตัวอย่าง</a></li>
-                  <li><i class="menu-icon fa fa-th"></i><a href="search_qu_u.php">ค้นหาประวัติใบเสรอราคา</a></li>
+                  <li><i class="menu-icon fa fa-th"></i><a href="search_qu_u.php">ค้นหาประวัติใบเสนอราคา</a></li>
               </li>
               </ul>
               <li class="menu-item-has-children dropdown">
