@@ -228,6 +228,7 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 
 
 											</form>
+		
 
 									</div>
 									</center>
@@ -251,9 +252,8 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 		<?php
 		if ($_POST['section'] == "" && $_POST['name'] == "" &&  $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 			include 'connect.php';
-		$strSQL = "SELECT * FROM qutation  order by strdate desc";
-			$objQuery2 = mysqli_query($objCon, $strSQL);
-
+		 $strSQL3 = "SELECT * FROM qutation  order by strdate desc";
+			$objQuery3 = mysqli_query($objCon, $strSQL3);
 		?>
 
 			<!--  Form Report  -->
@@ -957,7 +957,6 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 
 
 ?>
-
 
 
 
