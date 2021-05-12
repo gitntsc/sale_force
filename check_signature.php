@@ -124,10 +124,10 @@ $objResult21 = mysqli_fetch_array($objQuery21,MYSQLI_ASSOC);
 												</div><br>
 												<div class = "row">
 												<div class="col-xs12 col-sm-8">
-												<label>สถานที่ส่งตัวอย่าง : </label><input   class="form-control" size="50" name="address_send" id="addres_send" value = "<?php echo $objResult21['address_send'];?>"></input>
+												<label>สถานที่ส่งตัวอย่าง : </label><input   class="form-control" size="50" name="address_send" id="addres_send" disabled value = "<?php echo $objResult21['address_send'];?>"></input>
 												</div>
 												<div class="col-xs12 col-sm-4">
-												<label>tel : </label><input   class="form-control" size="50" name="Tel" id="Tel" value = "<?php echo $objResult21['Tel'];?>"></input>
+												<label>tel : </label><input   class="form-control" size="50" name="Tel" id="Tel" value disabled = "<?php echo $objResult21['Tel'];?>"></input>
 												</div>
 											</div>
                                             <br>
@@ -156,22 +156,22 @@ $objResult21 = mysqli_fetch_array($objQuery21,MYSQLI_ASSOC);
                                         
 											<tr>
 												
-												<td><input type="date" name="strdate1" id="strdate" size="5"  value="<?php echo $objResult21['strdate'];?>"></td>
-												<td><input name="product" class="form-control" type="text" id="product" size="20"  value="<?php echo $objResult21['product'];?>"></td>
-												<td><input name="amount" class="form-control" type="text" id="amount" size="3"  value="<?php echo $objResult21['amount'];?>"></td>
-												<td><input name="ref_no" class="form-control" type="text" id="ref_no" size="3" value="<?php echo $objResult21['ref_no'];?>"></td>
-												<td><input name="product_use" class="form-control" type="text" id="product_use" value="<?php echo $objResult21['product_use'];?>"></td>
-                        <td><input name="name_contact1" class="form-control" type="text" id="name_contact" size="10" value="<?php echo $objResult21['name_contact'];?>"></td>
+												<td><input type="date" name="strdate1" id="strdate" size="5" disabled value="<?php echo $objResult21['strdate'];?>"></td>
+												<td><input name="product" class="form-control" type="text" id="product" size="20" disabled value="<?php echo $objResult21['product'];?>"></td>
+												<td><input name="amount" class="form-control" type="text" id="amount" size="3" disabled value="<?php echo $objResult21['amount'];?>"></td>
+												<td><input name="ref_no" class="form-control" type="text" id="ref_no" size="3" disabled value="<?php echo $objResult21['ref_no'];?>"></td>
+												<td><input name="product_use" class="form-control" type="text" id="product_use" disabled value="<?php echo $objResult21['product_use'];?>"></td>
+                        <td><input name="name_contact1" class="form-control" type="text" id="name_contact" size="10" disabled value="<?php echo $objResult21['name_contact'];?>"></td>
 												
 												<?php
                                                 $strSQL20 = "SELECT * FROM member where section = 'tech'";
                                                 $objQuery20 = mysqli_query($objCon,$strSQL20);
 
                                                 ?>
-											    <td><select name="tech_name" id="tech_name" class="form-control">
+											    <td><select name="tech_name" id="tech_name" class="form-control" disabled>
                           <option value="<?php echo $objResult21['tech_name'];?>"><?php echo $objResult21['tech_name'];?></option>
 												<?php while($result = mysqli_fetch_assoc($objQuery20)): ?>
-										        <option value="<?=$result['username']?>"><?=$result['username']?></option>
+										        <option  value="<?=$result['username']?>"><?=$result['username']?></option>
 												<?php endwhile; ?>
 												</select></td>
 																	

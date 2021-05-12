@@ -62,8 +62,28 @@
 													<label>ATTN</label>
 												<input name="attn" class="form-control" type="text" id="attn" size="20"  placeholder="ATTN">
 											</div>
-                        <div class="form-group">
+                      <div class="form-group">
                             <label>บริษัท</label>
+                            <?php
+                           $strSQL11 = "SELECT * from customer where section = '".$_SESSION['section']."'";
+                            $objQuery11 = mysqli_query($objCon,$strSQL11);
+                            
+                            ?>
+                            <select class="form-control" id="company" name="company">
+                            <?php
+                            while ($objResult11 = mysqli_fetch_array($objQuery11)){
+                            ?>
+                            <option value="<?php echo $objResult11['name_company'];?>"><?php echo $objResult11['name_company'];?></option>
+
+                            <?php
+                            }
+                            ?>
+                            </select>
+                              
+                        </div>
+                          <table c
+                        <div class="form-group">
+                            <label>***ใช้ในกรณีไม่มีในตัวเลือก***</label>
                             <input name="company" class="form-control" type="text" id="company" size="20"  placeholder="บริษัท">
                         </div>
                           <table class="table table-striped">

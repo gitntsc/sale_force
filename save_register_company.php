@@ -30,31 +30,33 @@
 			$_POST["event"] = $event;
 
 
-      include 'connect.php';
-      $sql = "SELECT * FROM member WHERE username = '".$_SESSION['username']."'";
-      $objQuery4 = mysqli_query($objCon,$sql);
-      $objResult4 = mysqli_fetch_array($objQuery4,MYSQLI_ASSOC);
+	include 'connect.php';
+	$sql = "SELECT * FROM member WHERE username = '".$_SESSION['username']."'";
+	$objQuery4 = mysqli_query($objCon,$sql);
+	$objResult4 = mysqli_fetch_array($objQuery4,MYSQLI_ASSOC);
 
-      $_POST["leader"] = $objResult4["leader"];
+	$_POST["leader"] = $objResult4["leader"];
 
-      $_POST["username"] = $_SESSION["username"];
+	$_POST["username"] = $_SESSION["username"];
 
-			$strSQL2 = "INSERT INTO log_file (log_username,log_event,log_date) VALUES ('".$_POST["username"]."','".$_POST["event"]."','".$_POST["time"]."')";
-			$objQuery2 = mysqli_query($objCon,$strSQL2);
+	$_POST["section"] = $_SESSION["section"];
+
+	$strSQL2 = "INSERT INTO log_file (log_username,log_event,log_date) VALUES ('".$_POST["username"]."','".$_POST["event"]."','".$_POST["time"]."')";
+	$objQuery2 = mysqli_query($objCon,$strSQL2);
 
 	$strSQL = "SELECT * FROM customer WHERE cus_id = '".trim($_POST['txtCusid'])."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 	if($objResult)
 	{
-			echo "Customer ID already exists!";
+	echo "Customer ID already exists!";
 	}
 	else
 	{
-		$_POST["username"]=$_SESSION['username'];
-	$strSQL = "INSERT INTO customer (name_company,name_cus,address,address2,status,Username,leader,province,business_type,crt_time3) VALUES ('".$_POST["txtCompany"]."',
-		'".$_POST["txtNcus"]."','".$_POST["txtAd"]."','".$_POST["txtAd2"]."','".$_POST["txtStatus"]."','".$_POST["username"]."','".$_POST["leader"]."','".$_POST["txtProv"]."','".$_POST["txtBut"]."','".$_POST["time"]."')";
-		$objQuery = mysqli_query($objCon,$strSQL);
+	$_POST["username"]=$_SESSION['username'];
+	$strSQL = "INSERT INTO customer (name_company,name_cus,address,address2,status,Username,section,leader,province,business_type,crt_time3) VALUES ('".$_POST["txtCompany"]."',
+	'".$_POST["txtNcus"]."','".$_POST["txtAd"]."','".$_POST["txtAd2"]."','".$_POST["txtStatus"]."','".$_POST["username"]."','".$_POST["section"]."','".$_POST["leader"]."','".$_POST["txtProv"]."','".$_POST["txtBut"]."','".$_POST["time"]."')";
+	$objQuery = mysqli_query($objCon,$strSQL);
 		if($objQuery)
 		{
 			?>
