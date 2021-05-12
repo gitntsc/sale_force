@@ -28,6 +28,16 @@
             <li><i class="fa fa-table"></i><a href="order_all.php">รายการปฏิบัติงาน</a></li>
             <li><i class="fa fa-table"></i><a href="example_final.php">ใบขอตัวอย่าง</a></li>
             <li><i class="fa fa-table"></i><a href="quatation_final.php">ใบเสนอราคา</a></li>
+        
+            </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>ค้นประวัติ</a>
+                    <ul class="sub-menu children dropdown-menu">
+
+             
+
+            <li><i class="fa fa-table"></i><a href="search_qu.php">ค้นหาใบขอเสนอราคา</a></li>
             <li><i class="fa fa-table"></i><a href="search_ex.php">ค้นหาใบขอตัวอย่าง</a></li>
             </ul>
                 </li>

@@ -57,6 +57,7 @@
                 </div>
                 <div class="login-form">
                     <form name="form1" method="post" action="save_quatation.php">
+                    
 											<div class="form-group">
                         <center><h2>แบบฟอร์มขอใบเสนอราคา</h2></center>
 													<label>ATTN</label>

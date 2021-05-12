@@ -62,9 +62,12 @@
                     <img class="align-content" src="images/logo_01.png" alt="">
                 </a>
             </div>
+            
             <div class="login-form">
+            
                 <form name="form1" method="post" action="save_pre_example_co.php?ex_id=<?php echo $objResult2["ex_id"];?>">
                                         <div class="form-group">
+                                        <center><h2>แบบฟอร์มขอใบเสนอราคา</h2></center>
                                                 <label>รายการ</label><br>
                                             <label><?php echo $objResult2['product'];?></lable>
                                         </div>
@@ -112,10 +115,22 @@
                           </select>
                      </div><br>
                      <?php
+                    }elseif($objResult2['status']=="ไม่มีของ"){
+                        ?>
+                        <div class="form-group">
+                         <label>สถานะของที่ต้องการ</label><br>
+                          <select class="form-control" name="status" id="status">
+                          <option value="มีของ">มีของ</option>
+                          <option value="ไม่มีของ">ไม่มีของ</option>
+                          
+                          </select>
+                     </div><br>
+                         
+                    <?php    
                     }else{
                         ?>
-                         <label><?php echo $objResult2['status'];?></label>
-                    <?php    
+                        <label><?php echo $objResult2['status'];?></label>
+                     <?php
                     }
                      ?>
 

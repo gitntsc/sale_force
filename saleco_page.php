@@ -143,8 +143,7 @@ include 'connect.php';
                                                                                  date_default_timezone_set("Asia/Bangkok");
                                                                                  $time2 = date('Y-m-d');
                                                                                  $year = date("Y-m-d",strtotime("30 days ago"));
-                                                                                 echo $year;
-
+                                                                              
 
 																			  $sql = "SELECT * FROM tbl_event where crt_time2 between '".$year."' and '".$time2."' order by id desc limit {$start} , {$perpage} ";
 																				 $query = mysqli_query($objCon, $sql);
