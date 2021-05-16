@@ -187,7 +187,7 @@ $section = $_SESSION['section'];
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
 <?php
 
-echo $strSQL = "SELECT * FROM example WHERE  appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
+ $strSQL = "SELECT * FROM example WHERE  appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL);
 
 
