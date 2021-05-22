@@ -32,7 +32,7 @@ date_default_timezone_set("Asia/Bangkok");
 		alert('Password Incorrect Please Try Again');
 		</script>
 		<?php
-		echo $strSQL3 = "UPDATE member SET login_count = login_count + 1 where username = '".$_POST['txtUsername']."'";
+		 $strSQL3 = "UPDATE member SET login_count = login_count + 1 where username = '".$_POST['txtUsername']."'";
 		$objQuery3 = mysqli_query($objCon,$strSQL3);
 			if($objResult['login_count']  ='3'){
 				$strSQL4 = "UPDATE member SET status_log = 'lock' where username = '".$_POST['txtUsername']."'";
