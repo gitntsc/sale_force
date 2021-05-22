@@ -42,6 +42,8 @@
 		echo "Please input level!";
 		exit();
 	}
+	
+	$_POST['txtPassword'] = md5($_POST['txtPassword']);
 
 	$strSQL = "SELECT * FROM member WHERE Username = '".trim($_POST['txtUsername'])."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
@@ -125,5 +127,5 @@
 
 	}
 
-	mysqli_close();
+	mysqli_close($objCon);
 ?>

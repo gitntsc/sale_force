@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	
 
 date_default_timezone_set("Asia/Bangkok");
 	$time = date('Y-m-d H:i:s');
@@ -17,9 +18,11 @@ date_default_timezone_set("Asia/Bangkok");
 
     include 'connect.php';
 	$strSQL = "SELECT * FROM member WHERE Username = '".mysqli_real_escape_string($objCon,$_POST['txtUsername'])."'
-	and Password = '".mysqli_real_escape_string($objCon,$_POST['txtPassword'])."'";
+	and Password = '".mysqli_real_escape_string($objCon,md5($_POST['txtPassword']))."'";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+	
+		
 
 	if(!$objResult)
 	{
@@ -27,12 +30,27 @@ date_default_timezone_set("Asia/Bangkok");
 		?>
 		<script>
 		alert('Password Incorrect Please Try Again');
-		location.href='index.php';
 		</script>
+		<?php
+		echo $strSQL3 = "UPDATE member SET login_count = login_count + 1 where username = '".$_POST['txtUsername']."'";
+		$objQuery3 = mysqli_query($objCon,$strSQL3);
+			if($objResult['login_count']  ='3'){
+				$strSQL4 = "UPDATE member SET status_log = 'lock' where username = '".$_POST['txtUsername']."'";
+				$objQuery4 = mysqli_query($objCon,$strSQL4);
+			}
+			
+		?>
+		<?php
+		echo "<script>window.location.href='index.php'</script>";
+		?>
 <?php
 	}
 	else
 	{
+			if($objResult['status_log']=="lock"){
+				echo "<script>alert('ไม่สามารถ Login ได้เนื่องจาก password ผิดเกิน 3 ครั้ง กรุณาติดต่อเจ้าหน้าที่');</script>";
+				echo "<script>window.location.href='index.php'</script>";
+			}else{
 			setcookie("txtUsername",$_POST['txtUsername'],time()+3600*24*356);
 			setcookie("txtPassword",$_POST['txtPassword'],time()+3600*24*356);
 			header("location:index.php");
@@ -48,6 +66,9 @@ date_default_timezone_set("Asia/Bangkok");
 
 			session_write_close();
 
+			$strSQL5 = "UPDATE member SET login_count = '0' where username = '".$_POST['txtUsername']."'";
+			$objQuery5 = mysqli_query($objCon,$strSQL5);
+			
 			if($objResult["level"] == "admin"){
 				header("location:admin_page.php");
 			}elseif($objResult["level"] == "supervisor"){
@@ -66,7 +87,9 @@ date_default_timezone_set("Asia/Bangkok");
 				header("location:acc_page.php");
 			}else{
 				header("location:index.php");
-			}
+
+		}
 	}
+}
 	mysqli_close($objCon);
 ?>
