@@ -154,7 +154,7 @@
 
 
 					<?php
-					$strSQL20 = "SELECT * FROM member where company = 'nutritionsc' and section = '".$_SESSION['section']."' ";
+					$strSQL20 = "SELECT * FROM member where company = 'nutritionsc' and section = 'savorysc' or section = 'sweetsc' ";
 					$objQuery20 = mysqli_query($objCon,$strSQL20);
 
 					?>
@@ -417,7 +417,7 @@
 									<!--  /Form Report -->
 									<div class="clearfix"></div>
 									<?php
-
+									
 								}elseif($_POST['name']=="" &&  $_POST['product']=="" && $_POST['name_contact']!=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
 
 									include 'connect.php';
@@ -1402,7 +1402,7 @@
 								}else{
 
 									include 'connect.php';
-								 $strSQL3 = "SELECT * FROM example where  username = '".$_POST['name']."' and product = '".$_POST['product']."'
+								 $strSQL3 = "SELECT * FROM example where  username = '".$_POST['name']."' and product like '%".$_POST['product']."%'
 								and name_contact = '".$_POST['name_contact']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and appt1 !='null' and appt2 != 'null' order by strdate desc";
 									$objQuery3 = mysqli_query($objCon,$strSQL3);
 
@@ -1425,7 +1425,7 @@
 
 																											<div class="login-logo">
 																													<a href="index.html">
-																															<img class="align-content" src="images/logo_01.png" alt="">
+																													<img class="align-content" src="images/logo_01.png" alt="">
 																													</a>
 																											</div>
 																											<div class="login-form">

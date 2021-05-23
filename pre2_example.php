@@ -87,11 +87,11 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">ที่จัดส่ง</span>
                           </div>
-                          <textarea rows="" cols="118" name="address_send" id="address_send"><?php echo $objResult2['address_send'];?></textarea>
+                          <textarea rows="" cols="118" name="address_send" id="address_send" disabled><?php echo $objResult2['address_send'];?></textarea><br>
                         </div>
 												<div class="form-group">
                             <label>ชื่อผู้ติดต่อ</label>
-                            <label ="name_contact" class="form-control" type="text" id="name_contact" size="20"><?php echo $objResult2['name_contact'];?></label>
+                            <label  class="form-control" type="text" id="name_contact" size="20"><?php echo $objResult2['name_contact'];?></label>
                         </div>
 
                         <br>

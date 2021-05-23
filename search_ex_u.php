@@ -131,7 +131,7 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 
 	<!-- /#left-panel -->
 	<!-- Right Panel -->
-
+	
 	</header>
 	<!-- /#header -->
 	<!-- Content -->
@@ -222,7 +222,7 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 		<?php
 		if ($_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 			include 'connect.php';
-			echo $strSQL = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and appt1 !='null' and appt2 !='null' order by strdate desc";
+			 $strSQL = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and appt1 !='null' and appt2 !='null' order by strdate desc";
 			$objQuery2 = mysqli_query($objCon, $strSQL);
 
 		?>
@@ -332,10 +332,124 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 	<div class="clearfix"></div>
 <?php
 
+		}elseif ($_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
+
+			include 'connect.php';
+			$strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' and appt1 !='null' and appt2 !='null' order by strdate desc";
+			$objQuery3 = mysqli_query($objCon, $strSQL3);
+
+?>
+
+	<!--  Form Report  -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="box-title">Form Report </h4>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card-body">
+							<!-- <canvas id="TrafficChart"></canvas>   -->
+
+							<div class="sufee-login d-flex align-content-center flex-wrap">
+								<div class="container">
+
+									<div class="login-logo">
+										<a href="index.html">
+											<img class="align-content" src="images/logo_01.png" alt="">
+										</a>
+									</div>
+									<div class="login-form">
+										<table class="table">
+											<thead class="thead-dark">
+
+
+												<tr>
+
+													<th width="91">
+														<div align="center">username</div>
+													</th>
+													<th width="98">
+														<div align="center">section</div>
+													</th>
+													<th width="198">
+														<div align="center">company</div>
+													</th>
+													<th width="198">
+														<div align="center">name contact</div>
+													</th>
+													<th width="198">
+														<div align="center">product</div>
+													</th>
+													<th width="198">
+														<div align="center">Technicals</div>
+													</th>
+													<th width="97">
+														<div align="center">view</div>
+													</th>
+
+												</tr>
+												<?php
+												while ($objResult3 = mysqli_fetch_array($objQuery3)) {
+												?>
+													<tr>
+
+														<td>
+															<div align="center"><?php echo $objResult3["username"]; ?></div>
+														</td>
+														<td>
+															<div align="center"><?php echo $objResult3["section"]; ?></div>
+														</td>
+														<td>
+															<div align="center"><?php echo $objResult3["company"]; ?></div>
+														</td>
+														<td>
+															<div align="center"><?php echo $objResult3["name_contact"]; ?></div>
+														</td>
+														<td>
+															<div align="center"><?php echo $objResult3["product"]; ?></div>
+														</td>
+														<td>
+															<div align="center"><?php echo $objResult3["tech_name"]; ?></div>
+														</td>
+
+
+
+														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult3["ex_id"]; ?>">view</a></td>
+
+													</tr>
+													</tr>
+												<?php
+												}
+
+												?>
+										</table>
+
+										</tr>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div> <!-- /.card-body -->
+			</div>
+		</div> <!-- /.row -->
+		<div class="card-body"></div>
+	</div>
+	</div><!-- /# column -->
+	</div>
+	<!--  /Form Report -->
+	<div class="clearfix"></div>
+<?php
+
 		} elseif ($_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
-			echo $strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and product like '%" . $_POST['product'] . "%' and appt1 !='null' and appt2 !='null' order by strdate desc";
+			$strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and product like '%" . $_POST['product'] . "%' and appt1 !='null' and appt2 !='null' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
 ?>
@@ -449,8 +563,8 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 		} elseif ($_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
-			echo	 $strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and product like '%" . $_POST['product'] . "%' and name_contact like '%" . $_POST['name_contact'] . "%' 
-			and appt1 !='null' and appt2 !='null' order by strdate desc";
+			$strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and product like '%" . $_POST['product'] . "%' and name_contact like '%" . $_POST['name_contact'] . "%' 
+and appt1 !='null' and appt2 !='null' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
 ?>
@@ -564,8 +678,8 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 		} elseif ($_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
-			echo $strSQL3 = "SELECT * FROM example where username= '" . $_SESSION['username'] . "' and name_contact like '%" . $_POST['name_contact'] . "%' 
-			and appt1 !='null' and appt2 !='null' order by strdate desc";
+			$strSQL3 = "SELECT * FROM example where username= '" . $_SESSION['username'] . "' and name_contact like '%" . $_POST['name_contact'] . "%' 
+and appt1 !='null' and appt2 !='null' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
 ?>
@@ -679,8 +793,8 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 		} elseif ($_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
-			echo $strSQL3 = "SELECT * FROM example where  username = '" . $_SESSION['username'] . "'  and name_contact like '%" . $_POST['name_contact'] . "%' 
-			and appt1 !='null' and appt2 !='null' order by strdate desc";
+			$strSQL3 = "SELECT * FROM example where  username = '" . $_SESSION['username'] . "'  and name_contact like '%" . $_POST['name_contact'] . "%' 
+and appt1 !='null' and appt2 !='null' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
 ?>
@@ -794,7 +908,7 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 		} elseif ($_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
 
 			include 'connect.php';
-			echo $strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and product like '%" . $_POST['product'] . "%' and 
+			$strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and product like '%" . $_POST['product'] . "%' and 
 strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' and appt1 !='null' and appt2 !='null' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
@@ -909,7 +1023,7 @@ strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' and
 		} elseif ($_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
 
 			include 'connect.php';
-			echo $strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and name_contact like '%" . $_POST['name_contact'] . "%' and 
+			$strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and name_contact like '%" . $_POST['name_contact'] . "%' and 
 strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' and appt1 !='null' and appt2 !='null' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
@@ -1024,7 +1138,7 @@ strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' and
 		} elseif ($_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
 
 			include 'connect.php';
-			echo	 $strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and  product like '%" . $_POST['product'] . "%' and name_contact like '%" . $_POST['name_contact'] . "%' 
+			$strSQL3 = "SELECT * FROM example where username = '" . $_SESSION['username'] . "' and  product like '%" . $_POST['product'] . "%' and name_contact like '%" . $_POST['name_contact'] . "%' 
 and strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' and appt1 !='null' and appt2 !='null' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
@@ -1139,7 +1253,7 @@ and strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "'
 		} else {
 
 			include 'connect.php';
-			echo  $strSQL3 = "SELECT * FROM example where  username = '" . $_POST['name'] . "' and product = '" . $_POST['product'] . "' 
+			$strSQL3 = "SELECT * FROM example where  username = '" . $_POST['name'] . "' and product = '" . $_POST['product'] . "' 
 and name_contact = '" . $_POST['name_contact'] . "' and strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' 
 and appt1 !='null' and appt2 !='null' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);

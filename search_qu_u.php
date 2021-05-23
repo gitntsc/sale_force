@@ -166,7 +166,7 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 
 														</div>
 														<div class="form-group col-md-6">
-															<input class="form-control" name="name_contact" id="name_contact" placeholder="ชื่อลูกค้า">
+															<input class="form-control" name="name_contact" id="name_contact" placeholder="attn">
 														</div>
 													</div>
 
@@ -200,9 +200,7 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 
 
 											</form>
-<?php
-print_r($_POST);
-?>
+
 									</div>
 									</center>
 								</div>
@@ -223,9 +221,15 @@ print_r($_POST);
 
 
 		<?php
+		print_r($_POST);
+		?>
+
+
+
+		<?php
 		if ($_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 			include 'connect.php';
-			$strSQL3 = "SELECT * FROM qutation where username = '" . $_SESSION['username'] . "' order by strdate desc";
+			 $strSQL3 = "SELECT * FROM qutation where username = '" . $_SESSION['username'] . "' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
 		?>
@@ -280,7 +284,7 @@ print_r($_POST);
 
 
 
-		} elseif ($_POST['section'] !== "" && $_POST['name'] == "" &&  $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
+		} elseif ($_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
 			$strSQL3 = "SELECT * FROM qutation where section = '" . $_POST['section'] . "' order by strdate desc";
@@ -329,10 +333,11 @@ print_r($_POST);
 	<div class="clearfix"></div>
 <?php
 
-		} elseif ($_POST['section'] !== "" && $_POST['name'] !== "" &&  $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
+		}  elseif ($_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
-			$strSQL3 = "SELECT * FROM qutation where section = '" . $_POST['section'] . "' and username = '" . $_POST['name'] . "' order by strdate desc";
+			$strSQL3 = "SELECT * FROM qutation where username = '".$_SESSION['username']."' and (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
+			or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%') and attn like '%" . $_POST['name_contact'] . "%' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
 ?>
@@ -378,12 +383,12 @@ print_r($_POST);
 	<div class="clearfix"></div>
 <?php
 
-		} elseif ($_POST['section'] !== "" && $_POST['name'] !== "" &&  $_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
+		} elseif ($_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
-			$strSQL3 = "SELECT * FROM qutation where section = '" . $_POST['section'] . "' and username = '" . $_POST['name'] . "' and (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
-			or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%') and attn
-			= '" . $_POST['name_contact'] . "' order by strdate desc";
+			$strSQL3 = "SELECT * FROM qutation where username = '" . $_SESSION['username'] . "' and (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
+			or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%') and attn like 
+			'%" . $_POST['name_contact'] . "%' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
 ?>
@@ -429,112 +434,11 @@ print_r($_POST);
 	<div class="clearfix"></div>
 <?php
 
-		} elseif ($_POST['section'] == "" && $_POST['name'] !== "" &&  $_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
-
-			include 'connect.php';
-			$strSQL3 = "SELECT * FROM qutation where username = '" . $_POST['name'] . "' and (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
-			or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%') order by strdate desc";
-			$objQuery3 = mysqli_query($objCon, $strSQL3);
-
-?>
-
-	<!--  Form Report  -->
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="card">
-				<div class="card-body">
-					<h4 class="box-title">Form Report </h4>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="card-body">
-							<!-- <canvas id="TrafficChart"></canvas>   -->
-
-							<div class="sufee-login d-flex align-content-center flex-wrap">
-								<div class="container">
-
-									<div class="login-logo">
-										<a href="index.html">
-											<img class="align-content" src="images/logo_01.png" alt="">
-										</a>
-									</div>
-									<?php
-									include_once('form_qu.php');
-									?>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-				</div> <!-- /.card-body -->
-			</div>
-		</div> <!-- /.row -->
-		<div class="card-body"></div>
-	</div>
-	</div><!-- /# column -->
-	</div>
-	<!--  /Form Report -->
-	<div class="clearfix"></div>
-<?php
-
-		} elseif ($_POST['section'] == "" && $_POST['name'] !== "" &&  $_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
-
-			include 'connect.php';
-			$strSQL3 = "SELECT * FROM qutation where username = '" . $_POST['name'] . "' and (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
-			or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%') and attn = 
-			'" . $_POST['name_contact'] . "' order by strdate desc";
-			$objQuery3 = mysqli_query($objCon, $strSQL3);
-
-?>
-
-	<!--  Form Report  -->
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="card">
-				<div class="card-body">
-					<h4 class="box-title">Form Report </h4>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="card-body">
-							<!-- <canvas id="TrafficChart"></canvas>   -->
-
-							<div class="sufee-login d-flex align-content-center flex-wrap">
-								<div class="container">
-
-									<div class="login-logo">
-										<a href="index.html">
-											<img class="align-content" src="images/logo_01.png" alt="">
-										</a>
-									</div>
-									<?php
-									include_once('form_qu.php');
-									?>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-				</div> <!-- /.card-body -->
-			</div>
-		</div> <!-- /.row -->
-		<div class="card-body"></div>
-	</div>
-	</div><!-- /# column -->
-	</div>
-	<!--  /Form Report -->
-	<div class="clearfix"></div>
-<?php
-
-		} elseif ($_POST['section'] == "" && $_POST['name'] == "" &&  $_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
+		} elseif ($_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
 			$strSQL3 = "SELECT * FROM qtation where (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
-		or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%') and attn = '" . $_POST['name_contact'] . "' order by strdate desc";
+		or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%') and attn like '%" . $_POST['name_contact'] . "%' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
 ?>
@@ -580,7 +484,7 @@ print_r($_POST);
 	<div class="clearfix"></div>
 <?php
 
-		} elseif ($_POST['section'] == "" && $_POST['name'] == "" &&  $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
+		} elseif ($_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
 
 			include 'connect.php';
 			$strSQL3 = "SELECT * FROM qutation where strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' order by strdate desc";
@@ -629,7 +533,7 @@ print_r($_POST);
 	<div class="clearfix"></div>
 <?php
 
-		} elseif ($_POST['section'] == "" && $_POST['name'] !== "" &&  $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
+		} elseif ($_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
 
 			include 'connect.php';
 			$strSQL3 = "SELECT * FROM qutation where username = '" . $_POST['username'] . "' and strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' order by strdate desc";
@@ -678,7 +582,7 @@ print_r($_POST);
 	<div class="clearfix"></div>
 <?php
 
-		} elseif ($_POST['section'] == "" && $_POST['name'] == "" &&  $_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
+		} elseif ( $_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
 
 			include 'connect.php';
 			$strSQL3 = "SELECT * FROM qutation where (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
@@ -728,10 +632,10 @@ print_r($_POST);
 	<div class="clearfix"></div>
 <?php
 
-		} elseif ($_POST['section'] == "" && $_POST['name'] == "" &&  $_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
+		} elseif ($_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
-			$strSQL3 = "SELECT * FROM qutation where (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
+			$strSQL3 = "SELECT * FROM qutation where username = '".$_SESSION['username']."' and (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
 			or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%')  order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
@@ -778,7 +682,7 @@ print_r($_POST);
 	<div class="clearfix"></div>
 <?php
 
-		} elseif ($_POST['section'] == "" && $_POST['name'] == "" &&  $_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
+		} elseif ($_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 
 			include 'connect.php';
 			$strSQL3 = "SELECT * FROM qutation where attn like '%" . $_POST['name_contact'] . "%' order by strdate desc";
@@ -827,7 +731,7 @@ print_r($_POST);
 	<div class="clearfix"></div>
 <?php
 
-		} elseif ($_POST['section'] == "" && $_POST['name'] == "" &&  $_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
+		} elseif ( $_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== "") {
 
 			include 'connect.php';
 			$strSQL3 = "SELECT * FROM qutation where name_contact = '" . $_POST['name_contact'] . "' and strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' order by strdate desc";
@@ -879,9 +783,9 @@ print_r($_POST);
 		} else {
 
 			include 'connect.php';
-			$strSQL3 = "SELECT * FROM qutation where section = '" . $_POST['section'] . "' and username = '" . $_POST['name'] . "' and  (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
-	or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%') 
-								and attn = '" . $_POST['name_contact'] . "' and strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' order by strdate desc";
+			 $strSQL3 = "SELECT * FROM qutation where   username = '" . $_SESSION['username'] . "' and  (product1 like '%" . $_POST['product'] . "%' or product2 like '%" . $_POST['product'] . "%' or product3  like '%" . $_POST['product'] . "%'
+			or product4 like '%" . $_POST['product'] . "%' or product5 like '%" . $_POST['product'] . "%') 
+			and attn like '%" . $_POST['name_contact'] . "%' and strdate between '" . $_POST['strdate'] . "' and '" . $_POST['lastdate'] . "' order by strdate desc";
 			$objQuery3 = mysqli_query($objCon, $strSQL3);
 
 ?>
@@ -931,11 +835,6 @@ print_r($_POST);
 
 
 ?>
-
-
-
-
-
 
 
 
