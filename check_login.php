@@ -21,7 +21,8 @@ date_default_timezone_set("Asia/Bangkok");
 	and Password = '".mysqli_real_escape_string($objCon,md5($_POST['txtPassword']))."'";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
-	
+		
+	 
 		
 
 	if(!$objResult)
@@ -34,7 +35,11 @@ date_default_timezone_set("Asia/Bangkok");
 		<?php
 		 $strSQL3 = "UPDATE member SET login_count = login_count + 1 where username = '".$_POST['txtUsername']."'";
 		$objQuery3 = mysqli_query($objCon,$strSQL3);
-			if($objResult['login_count']  ='3'){
+		 $strSQL10 = "SELECT * FROM member where username = '".$_POST['txtUsername']."'";
+		$objQuery10 = mysqli_query($objCon,$strSQL10);
+		$objResult10 = mysqli_fetch_array($objQuery10,MYSQLI_ASSOC);
+
+			if($objResult10['login_count']+1  >='4'){
 				$strSQL4 = "UPDATE member SET status_log = 'lock' where username = '".$_POST['txtUsername']."'";
 				$objQuery4 = mysqli_query($objCon,$strSQL4);
 			}
