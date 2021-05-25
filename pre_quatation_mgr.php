@@ -23,6 +23,7 @@ $username = $_SESSION["username"];
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
+<?php header("Cache-Control: public, max-age=60, s-maxage=60");?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sale Support NutritionSc</title>
@@ -187,8 +188,8 @@ $username = $_SESSION["username"];
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
 
 <?php
-if($_POST['name']!=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
-    $strSQL5 = "SELECT * FROM qutation WHERE status = 'approve' order by qu_id desc";
+if($_POST['name']=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
+    $strSQL5 = "SELECT * FROM qutation WHERE status = 'non approve' order by qu_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 
@@ -242,61 +243,7 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
 		</table>
         <?php
 }elseif($_POST['name']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
-echo $strSQL5 = "SELECT * FROM qutation WHERE  section = '".$_SESSION['section']."' and  strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'    order by qu_id desc";
-$objQuery5 = mysqli_query($objCon,$strSQL5);
-
-
- ?>
-<table class="table">
-  <thead class="thead-dark">
-
-		<tr>
-
-		 <th width="98"> <div align="center">ID</div></th>
-	 <th width="198"> <div align="center">บริษัท</div></th>
-		 <th width="198"> <div align="center">ผู้ใช้งาน</div></th>
-	 <th width="198"> <div align="center">ATTN</div></th>
-   <th width="198"> <div align="center">วันที่</div></th>
-    <th width="198"> <div align="center">Fax</div></th>
-   <th width="198"> <div align="center">Email</div></th>
-   <th width="198"> <div align="center">แก้ไข</div></th>
-
-
-
-
-
-	 </tr>
-		<?php
-		while($objResult5 = mysqli_fetch_array($objQuery5,MYSQLI_ASSOC))
-		{
-		?>
-		<tr>
-
-		 <td><div align="center"><?php echo $objResult5["qu_id"];?></div></td>
-		 <td><div align="center"><?php echo $objResult5["company"];?></div></td>
-		 <td><div align="center"><?php echo $objResult5["username"];?></div></td>
-     <td><div align="center"><?php echo $objResult5["attn"];?></div></td>
-   <td><div align="center"><?php echo $objResult5["strdate"];?></div></td>
-    <td><div align="center"><?php echo $objResult5["Fax"];?></div></td>
-     <td><div align="center"><?php echo $objResult5["Email"];?></div></td>
-
-
-
-
-	 <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult5["qu_id"];?>">Edit</a></td>
-
-
-
-
-		</tr>
-		  </tr>
-		<?php
-		}
-		?>
-		</table>
-        <?php
-}elseif($_POST['name']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
- echo   $strSQL5 = "SELECT * FROM qutation WHERE section = '".$_SESSION['section']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by qu_id desc";
+ $strSQL5 = "SELECT * FROM qutation WHERE  section = '".$_SESSION['section']."' and  strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'    order by qu_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 
@@ -350,7 +297,7 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
 		</table>
         <?php
 }elseif($_POST['name']!=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
- echo   $strSQL5 = "SELECT * FROM qutation WHERE username = '".$_POST['name']."' and section = '".$_SESSION['section']."'  order by qu_id desc";
+    $strSQL5 = "SELECT * FROM qutation WHERE username = '".$_POST['name']."' and section = '".$_SESSION['section']."' and status = 'non approve' order by qu_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 
@@ -404,7 +351,7 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
 		</table>
         <?php
 }else{
-  echo  $strSQL5 = "SELECT * FROM qutation WHERE section = '".$_SESSION['section']."'  order by qu_id desc";
+   $strSQL5 = "SELECT * FROM qutation WHERE section = '".$_SESSION['section']."' and  username = '".$_POST['name']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by qu_id desc";
     $objQuery5 = mysqli_query($objCon,$strSQL5);
     
     

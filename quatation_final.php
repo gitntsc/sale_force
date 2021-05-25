@@ -23,6 +23,7 @@ $username = $_SESSION["username"];
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
+<?php header("Cache-Control: public, max-age=60, s-maxage=60");?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sale Support NutritionSc</title>
@@ -187,7 +188,7 @@ $username = $_SESSION["username"];
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
 
 <?php
-if($_POST['name']!=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
+if($_POST['name']=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
     $strSQL5 = "SELECT * FROM qutation WHERE status = 'approve' order by qu_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL5);
 
@@ -205,7 +206,7 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
    <th width="198"> <div align="center">วันที่</div></th>
     <th width="198"> <div align="center">Fax</div></th>
    <th width="198"> <div align="center">Email</div></th>
-   <th width="198"> <div align="center">แก้ไข</div></th>
+   <th width="198"> <div align="center">view</div></th>
 
 
 
@@ -229,7 +230,7 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 
 
-	 <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult5["qu_id"];?>">Edit</a></td>
+	 <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult5["qu_id"];?>">View</a></td>
 
 
 
@@ -242,7 +243,7 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
 		</table>
         <?php
 }elseif($_POST['name']!=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
-$strSQL5 = "SELECT * FROM qutation WHERE username = '".$_POST['name']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and  status = 'approve' order by qu_id desc";
+ $strSQL5 = "SELECT * FROM qutation WHERE username = '".$_POST['name']."' and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and  status = 'approve' order by qu_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 
@@ -296,7 +297,7 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
 		</table>
         <?php
 }elseif($_POST['name']=="" && $_POST['strdate']!=="" && $_POST['lastdate']!==""){
-    $strSQL5 = "SELECT * FROM qutation WHERE strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and  status = 'approve' order by qu_id desc";
+   $strSQL5 = "SELECT * FROM qutation WHERE strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."' and  status = 'approve' order by qu_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 
@@ -350,7 +351,7 @@ $objQuery5 = mysqli_query($objCon,$strSQL5);
 		</table>
         <?php
 }elseif($_POST['name']!=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
-    $strSQL5 = "SELECT * FROM qutation WHERE username = '".$_POST['name']."' and  status = 'approve' order by qu_id desc";
+  $strSQL5 = "SELECT * FROM qutation WHERE username = '".$_POST['name']."' and  status = 'approve' order by qu_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 

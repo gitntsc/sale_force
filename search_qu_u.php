@@ -220,9 +220,6 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 
 
 
-		<?php
-		print_r($_POST);
-		?>
 
 
 
