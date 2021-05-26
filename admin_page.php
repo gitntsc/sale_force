@@ -160,13 +160,13 @@ include 'main_admin.php';
 
 			<tr>
 
-				<th width="98"><div align="center">username</div></th>
-				<th width="198"><div align="center">Section</div></th>
+				<th class="text-center"><div align="center">username</div></th>
+				<th class="text-center"><div align="center">Section</div></th>
 
-				<th width="198"><div align="center">Customer name</div></th>
-				<th width="198"><div align="center">Approve</div></th>
+				<th class="text-center"><div align="center">Customer name</div></th>
+				<th class="text-center"><div align="center">Approve</div></th>
 
-				<th width="198"><div align="center">Edit</div></th>
+				<th class="text-center"><div align="center">Edit</div></th>
 
 			</tr>
 
@@ -177,24 +177,24 @@ include 'main_admin.php';
 	?>
 		<tr>
 
-			<td><div align="center"><?php echo $objResult2["username"];?></div></td>
-			<td><div align="center"><?php echo $objResult2["section"];?></div></td>
-			<td><div align="center"><?php echo $objResult2["company_name"];?></div></td>
+			<td class="text-center"><?php echo $objResult2["username"];?></div></td>
+			<td class="text-center"><?php echo $objResult2["section"];?></div></td>
+			<td class="text-center"><?php echo $objResult2["company_name"];?></div></td>
 				<?php
 			if($objResult2["approve_stat"]=="approve")
 			{
 			 ?>
-			<td align="center"><img src="images/approve.png" width="50"  height="50"></td>
+			<td class="text-center"><img src="images/approve.png" width="50"  height="50"></td>
 			<?php
 		}else{
 			?>
-			<td align="center"><img src="images/pending.png" width="50"  height="50"></td>
+			<td class="text-center"><img src="images/pending.png" width="50"  height="50"></td>
 			<?php
 		}
 		?>
 
 
-		<td align="center"><a href="fullview3.php?case_id=<?php echo $objResult2["case_id"];?>">Fullview</a></td>
+		<td class="text-center"><a href="fullview3.php?case_id=<?php echo $objResult2["case_id"];?>">Fullview</a></td>
 
 	</tr>
 		</tr>
@@ -216,7 +216,10 @@ $total_page = ceil($total_record / $perpage);
 <span aria-hidden="true">&laquo;</span>
 </a>
 </li >
-<?php for($i=1;$i<=$total_page;$i++){ ?>
+<?php for($i=1;$i<=10;$i++){
+?> 
+            
+            
 <li><a href="admin_page.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>|
 <?php } ?>
 <li>

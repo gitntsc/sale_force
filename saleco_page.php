@@ -151,17 +151,17 @@ include 'connect.php';
 																				 <table class="table">
 		 																		  <thead class="thead-dark">
 		 																		    <tr>
-		 																		      <th scope="col">id</th>
-		 																		      <th scope="col">username</th>
-		 																		      <th scope="col">Company name</th>
-		 																		      <th scope="col">Customer name</th>
-		 																		      <th scope="col">Customer level</th>
-		 																		      <th scope="col">Grade</th>
-		 																		      <th scope="col">Detail</th>
-		 																		      <th scope="col">Start</th>
-		 																		      <th scope="col">time</th>
-		 																		      <th scope="col">Section</th>
-		 																		      <th scope="col">edit</th>
+		 																		      <th class = "text-center" scope="col">id</th>
+		 																		      <th  class = "text-center" scope="col">username</th>
+		 																		      <th class = "text-center" scope="col">Company name</th>
+		 																		      <th class = "text-center"  scope="col">Customer name</th>
+		 																		      <th class = "text-center" scope="col">Customer level</th>
+		 																		      <th class = "text-center" scope="col">Grade</th>
+		 																		      <th class = "text-center" scope="col">Detail</th>
+		 																		      <th class = "text-center" scope="col">Start</th>
+		 																		      <th class = "text-center" scope="col">time</th>
+		 																		      <th class = "text-center" scope="col">Section</th>
+		 																		      <th class = "text-center" scope="col">edit</th>
 		 																		    </tr>
 
 		 																		    <?php
@@ -171,17 +171,17 @@ include 'connect.php';
 		 																		  </thead>
 		 																		  <tbody>
 		 																		    <tr>
-		 																		      <th scope="row"><?php echo $objResult["id"];?></th>
-		 																		      <td><?php echo $objResult["username"];?></td>
-		 																		      <td><?php echo $objResult["company_name"];?></td>
-		 																		      <td><?php echo $objResult["customer_name"];?></td>
-		 																		      <td><?php echo $objResult["cuslevel"];?></td>
-		 																		      <td><?php echo $objResult["grade"];?></td>
-		 																		      <td><?php echo $objResult["detail"];?></td>
-		 																		      <td><?php echo $objResult["start"];?></td>
-		 																		      <td><?php echo $objResult["time"];?></td>
-		 																		      <td><?php echo $objResult["section"];?></td>
-		 																		      <td><a href="pre_view.php?id=<?php echo $objResult["id"];?>">edit</td>
+		 																		      <th class = "text-center" scope="row"><?php echo $objResult["id"];?></th>
+		 																		      <td class = "text-center"><?php echo $objResult["username"];?></td>
+		 																		      <td class = "text-center"><?php echo $objResult["company_name"];?></td>
+		 																		      <td class = "text-center"><?php echo $objResult["customer_name"];?></td>
+		 																		      <td class = "text-center"><?php echo $objResult["cuslevel"];?></td>
+		 																		      <td class = "text-center"><?php echo $objResult["grade"];?></td>
+		 																		      <td class = "text-center"><?php echo $objResult["detail"];?></td>
+		 																		      <td class = "text-center"><?php echo $objResult["start"];?></td>
+		 																		      <td class = "text-center"><?php echo $objResult["time"];?></td>
+		 																		      <td class = "text-center"><?php echo $objResult["section"];?></td>
+		 																		      <td class = "text-center"><a href="pre_view.php?id=<?php echo $objResult["id"];?>">edit</td>
 
 		 																		    </tr>
 	<?php
@@ -202,7 +202,7 @@ $total_page = ceil($total_record / $perpage);
 <span aria-hidden="true">&laquo;</span>
 </a>
 </li >
-<?php for($i=1;$i<=$total_page;$i++){ ?>
+<?php for($i=1;$i<=10;$i++){ ?>
 <li><a href="saleco_page.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>|
 <?php } ?>
 <li>

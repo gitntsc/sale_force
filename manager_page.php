@@ -154,17 +154,17 @@ include 'connect.php';
 
 		<tr>
 
-			<th > <div align="center">Username</div></th>
-		<th > <div align="center">Section</div></th>
-			<th > <div align="center">Company Name</div></th>
-		<th> <div align="center">Customer Name</div></th>
-		<th> <div align="center">Customer Level</div></th>
-    <th> <div align="center">Date</div></th>
-    <th> <div align="center">Creat Time</div></th>
+			<th class = "text-center"> Username</div></th>
+		<th class = "text-center"> Section</div></th>
+			<th class = "text-center"> Company Name</div></th>
+		<th class = "text-center"> Customer Name</div></th>
+		<th class = "text-center"> Customer Level</div></th>
+    <th class = "text-center"> Date</div></th>
+    <th class = "text-center"> Creat Time</div></th>
 
 
-		 <th> <div align="center">status</div></th>
-		<th> <div align="center">Fullview</div></th>
+		 <th> status</div></th>
+		<th> Fullview</div></th>
 
 		</tr>
 	<?php
@@ -173,27 +173,27 @@ include 'connect.php';
 	?>
 		<tr>
 
-			<td><div align="center"><?php echo $objResult2["username"];?></div></td>
-			<td><div align="center"><?php echo $objResult2["section"];?></div></td>
-			<td><div align="center"><?php echo $objResult2["company_name"];?></div></td>
-		<td><div align="center"><?php echo $objResult2["cus_name"];?></div></td>
-		<td><div align="center"><?php echo $objResult2["cus_level"];?></div></td>
+			<td class = "text-center"><?php echo $objResult2["username"];?></div></td>
+			<td class = "text-center"><?php echo $objResult2["section"];?></div></td>
+			<td class = "text-center"><?php echo $objResult2["company_name"];?></div></td>
+		<td class = "text-center"><?php echo $objResult2["cus_name"];?></div></td>
+		<td class = "text-center"><?php echo $objResult2["cus_level"];?></div></td>
 
-    <td><div align="center"><?php echo $objResult2["strdate"];?></div></td>
-  <td><div align="center"><?php echo $objResult2["crt_time"];?></div></td>
+    <td class = "text-center"><?php echo $objResult2["strdate"];?></div></td>
+  <td class = "text-center"><?php echo $objResult2["crt_time"];?></div></td>
 			<?php
 			if($objResult2["approve_stat"]=="approve")
 			{
 			 ?>
-			<td align="center"><img src="images/approve.png" alt="Logo"></td>
+			<td class = "text-center"><img src="images/approve.png" alt="Logo"></td>
 			<?php
 		}else{
 			?>
-			<td align="center"><img src="images/pending.png" alt="Logo"></td>
+			<td class = "text-center"><img src="images/pending.png" alt="Logo"></td>
 			<?php
 		}
 			?>
-		<td align="center"><a href="fullview3.php?case_id=<?php echo $objResult2["case_id"];?>">Fullview</a></td>
+		<td class = "text-center"><a href="fullview3.php?case_id=<?php echo $objResult2["case_id"];?>">Fullview</a></td>
 
 	</tr>
 		</tr>
@@ -215,7 +215,7 @@ $total_page = ceil($total_record / $perpage);
 <span aria-hidden="true">&laquo;</span>
 </a>
 </li >
-<?php for($i=1;$i<=$total_page;$i++){ ?>
+<?php for($i=1;$i<=10;$i++){ ?>
 <li><a href="manager_page.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>|
 <?php } ?>
 <li>
