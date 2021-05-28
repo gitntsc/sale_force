@@ -189,7 +189,7 @@ $username = $_SESSION["username"];
 
 <?php
 if($_POST['name']=="" && $_POST['strdate']=="" && $_POST['lastdate']==""){
-    $strSQL5 = "SELECT * FROM qutation WHERE status = 'non approve' order by qu_id desc";
+   echo $strSQL5 = "SELECT * FROM qutation WHERE status = 'non approve' order by qu_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL5);
 
 

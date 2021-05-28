@@ -201,6 +201,9 @@ include 'connect.php';
 																					<option value="phennapha">phennapha</option>
 																					<option value="wathunya">wathunya</option>
 																					<option value="kanokwan">kanokwan</option>
+                                                                                    <option value="chonnipa">chonnipa</option>
+                                                                                    <option value="nattakan">nattakan</option>
+                                                                                    <option value="kamornrath">kamornrath</option>
 
 
 

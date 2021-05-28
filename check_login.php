@@ -27,19 +27,26 @@ date_default_timezone_set("Asia/Bangkok");
 
 	if(!$objResult)
 	{
-
+		$strSQL10 = "SELECT * FROM member where username = '".$_POST['txtUsername']."'";
+		$objQuery10 = mysqli_query($objCon,$strSQL10);
+		$objResult10 = mysqli_fetch_array($objQuery10,MYSQLI_ASSOC);
+		if($objResult10['status_log']=="lock"){
+			echo "<script>alert('ไม่สามารถ Login ได้เนื่องจาก password ผิดเกิน 3 ครั้ง กรุณาติดต่อเจ้าหน้าที่');</script>";
+			echo "<script>window.location.href='index.php'</script>";
+		}else{
 		?>
-		<script>
-		alert('Password Incorrect Please Try Again');
-		</script>
+		<?php
+			echo "<script>alert('Password Incorrect Try Again!!');</script>";
+			echo "<script>window.location.href='index.php'</script>";
+		
+		}
+		?>
 		<?php
 		 $strSQL3 = "UPDATE member SET login_count = login_count + 1 where username = '".$_POST['txtUsername']."'";
 		$objQuery3 = mysqli_query($objCon,$strSQL3);
-		 $strSQL10 = "SELECT * FROM member where username = '".$_POST['txtUsername']."'";
-		$objQuery10 = mysqli_query($objCon,$strSQL10);
-		$objResult10 = mysqli_fetch_array($objQuery10,MYSQLI_ASSOC);
+		
 
-			if($objResult10['login_count']+1  >='4'){
+			if($objResult10['login_count']+1  >='3'){
 				$strSQL4 = "UPDATE member SET status_log = 'lock' where username = '".$_POST['txtUsername']."'";
 				$objQuery4 = mysqli_query($objCon,$strSQL4);
 			}
