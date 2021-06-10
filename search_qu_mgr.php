@@ -105,7 +105,7 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 		.chart-container {
 			display: table;
 			min-width: 270px;
-			tqut-align: left;
+			text-align: left;
 			padding-top: 10px;
 			padding-bottom: 10px;
 		}

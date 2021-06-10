@@ -159,7 +159,7 @@ $objResult21 = mysqli_fetch_array($objQuery21,MYSQLI_ASSOC);
 												<td><input type="date" name="strdate1" id="strdate" size="5" disabled value="<?php echo $objResult21['strdate'];?>"></td>
 												<td><input name="product" class="form-control" type="text" id="product" size="20" disabled value="<?php echo $objResult21['product'];?>"></td>
 												<td><input name="amount" class="form-control" type="text" id="amount" size="3" disabled value="<?php echo $objResult21['amount'];?>"></td>
-												<td><input name="ref_no" class="form-control" type="text" id="ref_no" size="3" disabled value="<?php echo $objResult21['ref_no'];?>"></td>
+												<td><input name="ref_no" class="form-control" type="text" id="ref_no" size="3"  value="<?php echo $objResult21['ref_no'];?>"></td>
 												<td><input name="product_use" class="form-control" type="text" id="product_use" disabled value="<?php echo $objResult21['product_use'];?>"></td>
                         <td><input name="name_contact1" class="form-control" type="text" id="name_contact" size="10" disabled value="<?php echo $objResult21['name_contact'];?>"></td>
 												
