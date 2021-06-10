@@ -243,8 +243,8 @@ $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 		<?php
 		if ($_POST['name'] == "" &&  $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == "") {
 			include 'connect.php';
-			echo $strSQL = "SELECT * FROM qutation where section = '" . $_SESSION['section'] . "' and status = 'approve' order by strdate desc";
-			$objQuery2 = mysqli_query($objCon, $strSQL);
+			 $strSQL = "SELECT * FROM qutation where section = '" . $_SESSION['section'] . "' and status = 'approve' order by strdate desc";
+			$objQuery3 = mysqli_query($objCon, $strSQL);
 
 		?>
 

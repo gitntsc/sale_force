@@ -5,6 +5,7 @@ session_start();
 		echo "Please Login!";
 		exit();
 	}
+    error_reporting(0);
 
 
 	include 'connect.php';
@@ -97,76 +98,91 @@ $section = $_SESSION['section'];
             <!-- Animated -->
             <div class="animated fadeIn">
                 <!-- Widgets  -->
+                
                 <div class="row">
+	                    <div class="col-lg-12">
+	                        <div class="card">
+	                            <div class="card-body">
+	                                <h4 class="box-title">Search Section</h4>
+	                            </div>
+	                            <div class="row">
+	                                <div class="col-lg-12">
+	                                    <div class="card-body">
+	                                        <!-- <canvas id="TrafficChart"></canvas>   -->
+	                                        <div class="container">
+
+	                                        <center><div class="form-group">
+							<form name="frmSearch" method="post" action="<?=$_SERVER['SCRIPT_NAME'];?>">
+                <div class="form-row">
 
 
-                    <div class="col-lg-4 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-2">
-                                        <i class="pe-7s-cart"></i>
-                                    </div>
-																		<?php
 
-																		$strSQL = "SELECT * FROM report";
-																		$objQuery2 = mysqli_query($objCon,$strSQL);
-																		$objResult2 = mysqli_num_rows($objQuery2);
-																		?>
+					<?php
+					$strSQL20 = "SELECT * FROM member where company = 'nutritionsc' and section = '".$_SESSION['section']."' ";
+					$objQuery20 = mysqli_query($objCon,$strSQL20);
 
+					?>
+                    <div class="form-group col-md-12">
+                        <label for="district">เลือกรายชื่อ</label>
+                        <select name="name" id="name" class="form-control">
+						<option value="">-</option>
+				<?php		while($objResult20 = mysqli_fetch_assoc($objQuery20)){ ?>
+                            <option value="<?php echo $objResult20['username']?>"><?php echo $objResult20['username'];?></option>
 
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><?php echo $objResult2; ?></span></div>
-                                            <div class="stat-heading">จำนวนรายงานทั้งหมด</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+							<?php
+							}
+							?>
+                        </select>
                     </div>
+                </div>
 
-                    <div class="col-lg-4 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-																		<?php
+				<div class = "form-row">
+				<div class="form-group col-md-6">
+				<input class="form-control" name="product" id ="product" placeholder="สินค้า">
 
-																		$strSQL = "SELECT * FROM report WHERE username = '".$_SESSION['username']."' and(approve_stat != 'approve')";
-																		$objQuery3 = mysqli_query($objCon,$strSQL);
-																		$objResult3 = mysqli_num_rows($objQuery3);
-																		?>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><?php echo $objResult3; ?></span></div>
-                                            <div class="stat-heading">รายงานที่ยังไม่ได้อนุมัติ</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-lg-4 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                        <i class="pe-7s-users"></i>
-                                    </div>
-																		<?php
+				</div>
+				<div class="form-group col-md-6">
+				<input class="form-control" name="name_contact" id ="name_contact" placeholder="ชื่อลูกค้า">
+				</div>
+				</div>
 
-																		$strSQL = "SELECT * FROM customer";
-																		$objQuery4 = mysqli_query($objCon,$strSQL);
-																		$objResult4 = mysqli_num_rows($objQuery4);
-																		?>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><?php echo $objResult4;?></span></div>
-                                            <div class="stat-heading">Customer</div>
+																						<div class="form-group col-md-4">
+
+																						<label>Start Date</label><br>
+																						<input class= "form-control" name="strdate" type="date" id="strdate" placeholder="เลือกวันที่">
+																					</div>
+																						<div class="form-group col-md-4">
+																						<label>End Date</label><br>
+																						<input class= "form-control" name="lastdate" type="date" id="lastdate" placeholder="เลือกวันที่">
+
+																					</div>
+
+
+																					<br>
+																				<br>
+
+																				</div>
+				<div class = "form-row">
+				<div class="form-group col-md-12">
+				<label>กรุณากรอกวันที่ให้ครบ</label>
+				</div>
+				</div>
+				<div class = "form-row">
+				<div class="form-group col-md-12">
+				<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Search</button>
+				</div>
+				</div>
+
+
+
+																					</form>
+
+	                                      </div></center>
+	                                    </div>
+
+		</table>
+
                                         </div>
                                     </div>
                                 </div>
@@ -187,65 +203,113 @@ $section = $_SESSION['section'];
                                     <div class="card-body">
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
 <?php
-
- $strSQL = "SELECT * FROM example WHERE  appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
+if($_POST['name']== "" && $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == ""){
+$strSQL = "SELECT * FROM example WHERE  appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
 $objQuery5 = mysqli_query($objCon,$strSQL);
 
 
  ?>
-																				<table class="table">
-  <thead class="thead-dark">
+																	
+        <?php
+        include ('form_ex.php');
+    }elseif($_POST['name']!== "" && $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == ""){
+        $strSQL = "SELECT * FROM example WHERE username = '".$_POST['name']."' and appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']!== "" && $_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == ""){
+         $strSQL = "SELECT * FROM example WHERE username = '".$_POST['name']."' and product like '%".$_POST['product']."%' and appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']!== "" && $_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == ""){
+         $strSQL = "SELECT * FROM example WHERE username = '".$_POST['name']."' and product like '%".$_POST['product']."%' and name_contact like '%".$_POST['name_contact']."%' and appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']!== "" && $_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == ""){
+        $strSQL = "SELECT * FROM example WHERE username = '".$_POST['name']."' and name_contact like '%".$_POST['name_contact']."%' and appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']!== "" && $_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== ""){
+        $strSQL = "SELECT * FROM example WHERE username = '".$_POST['name']."' and product like '%".$_POST['product']."%' and name_contact like '%".$_POST['name_contact']."%' and appt1='null' and appt2='null' and section = '".$section."'  
+        and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']!== "" && $_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== ""){
+         $strSQL = "SELECT * FROM example WHERE username = '".$_POST['name']."' and product like '%".$_POST['product']."%'  and appt1='null' and appt2='null' and section = '".$section."'  
+        and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']!== "" && $_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== ""){
+         $strSQL = "SELECT * FROM example WHERE username = '".$_POST['name']."'  and name_contact like '%".$_POST['name_contact']."%' and appt1='null' and appt2='null' and section = '".$section."'  
+        and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']== "" && $_POST['product'] !== "" && $_POST['name_contact'] !== "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== ""){
+        $strSQL = "SELECT * FROM example WHERE   product like '%".$_POST['product']."%' and name_contact like '%".$_POST['name_contact']."%' and appt1='null' and appt2='null' and section = '".$section."'  
+        and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']!== "" && $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== ""){
+         $strSQL = "SELECT * FROM example WHERE username = '".$_POST['name']."' and appt1='null' and appt2='null' and section = '".$section."'  
+        and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']== "" && $_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== ""){
+        $strSQL = "SELECT * FROM example WHERE  product like '%".$_POST['product']."%'  and appt1='null' and appt2='null' and section = '".$section."'  
+        and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']== "" && $_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== ""){
+         $strSQL = "SELECT * FROM example WHERE  name_contact like '%".$_POST['name_contact']."%' and appt1='null' and appt2='null' and section = '".$section."'  
+        and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name'] == "" && $_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== ""){
+        $strSQL = "SELECT * FROM example WHERE  product like '%".$_POST['product']."%' and  appt1='null' and appt2='null' and section = '".$section."'  
+        order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']== "" && $_POST['product'] == "" && $_POST['name_contact'] !== "" && $_POST['strdate'] == "" && $_POST['lastdate'] == ""){
+       $strSQL = "SELECT * FROM example WHERE  name_contact like '%".$_POST['name_contact']."%' and appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']== "" && $_POST['product'] !== "" && $_POST['name_contact'] == "" && $_POST['strdate'] == "" && $_POST['lastdate'] == ""){
+       $strSQL = "SELECT * FROM example WHERE product = '".$_POST['product']."'  and appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
+     
+    }elseif($_POST['name']== "" && $_POST['product'] == "" && $_POST['name_contact'] == "" && $_POST['strdate'] !== "" && $_POST['lastdate'] !== ""){
+        $strSQL = "SELECT * FROM example WHERE appt1='null' and appt2='null' and section = '".$section."'  
+       and strdate between '".$_POST['strdate']."' and '".$_POST['lastdate']."'  order by ex_id desc";
+       $objQuery5 = mysqli_query($objCon,$strSQL);
+       include ('form_ex.php');
+    
+   }else{
+        $strSQL = "SELECT * FROM example WHERE  appt1='null' and appt2='null' and section = '".$section."'  order by ex_id desc";
+        $objQuery5 = mysqli_query($objCon,$strSQL);
+        include ('form_ex.php');
 
-		<tr>
 
-		 <th width="98"> <div align="center">Example ID</div></th>
-	 <th width="198"> <div align="center">รายการ</div></th>
-		 <th width="198"> <div align="center">ใช้ในผลิตภัณฑ์</div></th>
-	 <th width="198"> <div align="center">จำนวน</div></th>
-   <th width="198"> <div align="center">วันที่</div></th>
-   <th width="198"> <div align="center">ที่อยู่</div></th>
-   <th width="198"> <div align="center">ชื่อผู้ติดต่อ</div></th>
-   <th width="198"> <div align="center">โทรศัพท์</div></th>
-   <th width="198"> <div align="center">แก้ไข</div></th>
-
-
-
-
-
-	 </tr>
-		<?php
-		while($objResult5 = mysqli_fetch_array($objQuery5,MYSQLI_ASSOC))
-		{
-		?>
-		<tr>
-
-		 <td><div align="center"><?php echo $objResult5["ex_id"];?></div></td>
-		 <td><div align="center"><?php echo $objResult5["product"];?></div></td>
-		 <td><div align="center"><?php echo $objResult5["product_use"];?></div></td>
-	 <td><div align="center"><?php echo $objResult5["amount"];?></div></td>
-   <td><div align="center"><?php echo $objResult5["strdate"];?></div></td>
-   <td><div align="center"><?php echo $objResult5["address_send"];?></div></td>
-    <td><div align="center"><?php echo $objResult5["name_contact"];?></div></td>
-     <td><div align="center"><?php echo $objResult5["Tel"];?></div></td>
-
-
-
-
-	 <td align="center"><a href="pre_example_mgr.php?ex_id=<?php echo $objResult5["ex_id"];?>">Edit</a></td>
-
-
-
-
-		</tr>
-		  </tr>
-		<?php
-		}
-		?>
-		</table>
+    }
+    
+    
+        ?>
 		<?php
 		mysqli_close($objCon);
 		?>
-                                    </div> <!-- /.card-body -->
+                                        </div> <!-- /.card-body -->
                                 </div>
                             </div> <!-- /.row -->
                             <div class="card-body"></div>

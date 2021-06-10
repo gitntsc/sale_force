@@ -32,12 +32,12 @@
                 <td align="center"><a href="pre_quatation_final.php?qu_id=<?php echo $objResult3["qu_id"];?>">view</a></td>
 
         </tr>
-            </tr>
+          
         <?php
         }
 
         ?>
         </table>
 
-        </tr>
+     
 </div>
