@@ -67,7 +67,7 @@
             
                 <form name="form1" method="post" action="save_pre_example_co.php?ex_id=<?php echo $objResult2["ex_id"];?>">
                                         <div class="form-group">
-                                        <center><h2>แบบฟอร์มขอใบเสนอราคา</h2></center>
+                                        <center><h2>แบบฟอร์มขอใบขอตัวอย่าง</h2></center>
                                                 <label>รายการ</label><br>
                                             <label><?php echo $objResult2['product'];?></lable>
                                         </div>
@@ -78,6 +78,9 @@
                     <div class="form-group">
                         <label>จำนวน</label><br>
                         <label><?php echo $objResult2['amount'];?></label>
+                    </div>
+                    <div class="form-group">
+                    <input class="form-control" name="ref_no" id="ref_no" value='<?php echo $objResult2['ref_no'];?>'></input>
                     </div>
 
 

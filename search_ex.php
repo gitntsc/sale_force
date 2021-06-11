@@ -298,7 +298,7 @@
 																													
 																													
 
-																														<td align="center"><a href="check_signature.php?ex_id=<?php echo $objResult2["ex_id"];?>">view</a></td>
+																														<td align="center"><a href="pre_example_co.php?ex_id=<?php echo $objResult2["ex_id"];?>">view</a></td>
 
 	                                                    	</tr>
 	                                                    		</tr>

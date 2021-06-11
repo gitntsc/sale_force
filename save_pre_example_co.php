@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'connect.php';
-echo $strSQL = "UPDATE example SET status = '".$_POST['status']."' where ex_id = '".$_GET['ex_id']."'";
+ $strSQL = "UPDATE example SET ref_no = '".$_POST['ref_no']."' ,status = '".$_POST['status']."' where ex_id = '".$_GET['ex_id']."'";
 $objQuery = mysqli_query($objCon,$strSQL);
 
 if($objQuery){
