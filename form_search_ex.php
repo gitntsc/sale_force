@@ -11,6 +11,7 @@
                                                                                         <th width="198"> <div align="center">date</div></th>
                                                                                         <th width="198"> <div align="center">Technicals</div></th>
                                                                                         <th width="97"> <div align="center">view</div></th>
+                                                                                        <th width="97"> <div align="center">status</div></th>
                                                                                         
 
                                     </tr>
@@ -30,7 +31,7 @@
                                                                                         
 
                                                                                             <td align="center"><a href="pre_example_co.php?ex_id=<?php echo $objResult3["ex_id"];?>">view</a></td>
-
+                                                                                            <td><div align="center"><?php echo $objResult3["status"];?></div></td>
                                 </tr>
                                     </tr>
                                 <?php
