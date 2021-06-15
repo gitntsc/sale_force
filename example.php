@@ -69,10 +69,7 @@
                             <label>จำนวน</label>
                             <input name="amount" class="form-control" type="text" id="amount" size="20"  placeholder="จำนวน">
                         </div>
-                        <div class="form-group">
-                            <label>Reference Number</label>
-                            <input name="ref_no" class="form-control" type="text" id="ref_no" size="20"  placeholder="Ref No.">
-                        </div>
+                      
                         <?php
                         $strSQL20 = "SELECT * FROM member where section = 'tech'";
                         $objQuery20 = mysqli_query($objCon,$strSQL20);
@@ -100,12 +97,17 @@
                           </div>
                           <textarea class="form-control" aria-label="With textarea" name="address_send" id="address_send" placeholder="สถานที่ส่งตัวอย่าง"></textarea>
                         </div><br>
-												<div class="form-group">
+                        <div class="form-group">
+                            <label>ชื่อบริษัท</label>
+                            <input name="cus_company" class="form-control" type="text" id="cus_company" size="20"  placeholder="ชื่อบริษัท">
+                        </div>
+
+                        
+						<div class="form-group">
                             <label>ชื่อผู้ติดต่อ</label>
                             <input name="name_contact" class="form-control" type="text" id="name_contact" size="20"  placeholder="ชื่อผู้ติดต่อ">
                         </div>
-
-                        <br>
+                       
                        
                         <label for="phone">Tel.</label>
                         <input class="form-control" type="tel" id="tel" name="tel" placeholder="Telephone Number" ><br><br>

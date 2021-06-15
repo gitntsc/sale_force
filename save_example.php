@@ -18,10 +18,10 @@ $recive = "null";
 
 
 echo $strSQL2 = "INSERT INTO example(username,section,company,address_send,tel,strdate,product,amount,ref_no
-,product_use,name_contact,tech_name,appt1,who_appt1,appt2,who_appt2,sender,recive) values ('".$_POST['username']."'
+,product_use,name_contact,cus_company,tech_name,appt1,who_appt1,appt2,who_appt2,sender,recive) values ('".$_POST['username']."'
 ,'".$_POST['section']."','".$_POST['company']."','".$_POST['address_send']."'
 ,'".$_POST['tel']."','".$_POST['strdate']."','".$_POST['product']."'
-,'".$_POST['amount']."','".$_POST['ref_no']."','".$_POST['product_use']."','".$_POST['name_contact']."','".$_POST['tech_name']."','".$appt1."','".$who_appt1."'
+,'".$_POST['amount']."','".$_POST['ref_no']."','".$_POST['product_use']."','".$_POST['name_contact']."','".$_POST['cus_company']."','".$_POST['tech_name']."','".$appt1."','".$who_appt1."'
 ,'".$appt2."','".$who_appt2."','".$sender."','".$recive."')";
 $objQuery2 = mysqli_query($objCon,$strSQL2);
 

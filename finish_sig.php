@@ -134,6 +134,11 @@ $objResult21 = mysqli_fetch_array($objQuery21,MYSQLI_ASSOC);
 														<label> บริษัท : <?php echo $objResult10['company'];?>  </label>
 													</div>
 												</div><br>
+												<div class="row">
+														<div class="col-xs-12 col-sm-4">
+														<label> บริษัทที่แจ้งการส่ง : <?php echo $objResult21['cus_company'];?>  </label>
+													</div>
+												</div><br>
 												<div class = "row">
 												<div class="col-xs12 col-sm-8">
 												<label>สถานที่ส่งตัวอย่าง : </label><input   class="form-control" size="50" name="address_send" id="addres_send" disabled value = "<?php echo $objResult21['address_send'];?>"></input>

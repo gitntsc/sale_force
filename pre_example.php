@@ -96,6 +96,11 @@ if($objResult2['appt1']=='null' && $objResult['level']=='manager')
                             <label>ชื่อผู้ติดต่อ</label>
                             <input name="name_contact" class="form-control" type="text" id="name_contact" size="20"  value="<?php echo $objResult2['name_contact'];?>">
                         </div>
+                        <div class="form-group">
+                            <label>ชื่อบริษัท</label>
+                            <input name="cus_company" class="form-control" type="text" id="cus_company" size="20"  value="<?php echo $objResult2['cus_company'];?>">
+                        </div>
+
 
                       
                         <br>
@@ -187,6 +192,11 @@ if($objResult2['appt1']=='null' && $objResult['level']=='manager')
                         <label>ชื่อผู้ติดต่อ</label>
                         <input name="name_contact" class="form-control" type="text" id="name_contact" size="20"  value="<?php echo $objResult2['name_contact'];?>">
                     </div>
+                    <div class="form-group">
+                            <label>ชื่อบริษัท</label>
+                            <input name="cus_company" class="form-control" type="text" id="cus_company" size="20"  value="<?php echo $objResult2['cus_company'];?>">
+                        </div>
+
 
                     <br>
                     <br>

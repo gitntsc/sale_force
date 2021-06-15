@@ -123,6 +123,11 @@ $objResult21 = mysqli_fetch_array($objQuery21,MYSQLI_ASSOC);
 													</div>
 												</div><br>
 												<div class = "row">
+												<div class="col-xs12 col-sm-12">
+												<label>บริษัทที่แจ้งการส่ง : </label><input   class="form-control" size="50" name="cus_company" id="cus_company" disabled value = "<?php echo $objResult21['cus_company'];?>"></input>
+												</div>
+												</div>
+												<div class = "row">
 												<div class="col-xs12 col-sm-8">
 												<label>สถานที่ส่งตัวอย่าง : </label><input   class="form-control" size="50" name="address_send" id="addres_send" disabled value = "<?php echo $objResult21['address_send'];?>"></input>
 												</div>
@@ -189,7 +194,7 @@ $objResult21 = mysqli_fetch_array($objQuery21,MYSQLI_ASSOC);
 						
                         <?PHP
    	$strSelect="SELECT * FROM example where ex_id = '".$_GET['ex_id']."'";
-		$Query=mysqli_query($objCon,$strSelect) or die (mysql_error());
+		$Query=mysqli_query($objCon,$strSelect);
 		$i=0;
 		while($Result=mysqli_fetch_array($Query)){
 		$i++;

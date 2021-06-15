@@ -79,11 +79,7 @@ if($objResult2['appt1']=='null')
                             <label>จำนวน</label>
                             <input name="amount" class="form-control" type="text" id="amount" size="20"  value="<?php echo $objResult2['amount'];?>">
                         </div>
-                        <div class="form-group">
-                            <label>Reference
-                                 Number</label>
-                            <input name="ref_no" class="form-control" type="text" id="ref_no" size="20"  value="<?php echo $objResult2['ref_no'];?>">
-                        </div>
+                     
 
 
 
@@ -109,13 +105,18 @@ if($objResult2['appt1']=='null')
 												</select></td>
                         </div>
                         <br>
-                        <br>
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text">ที่จัดส่ง</span>
                           </div>
                           <textarea rows="" cols="118" name="address_send" id="address_send"><?php echo $objResult2['address_send']; ?></textarea>
                         </div>
+                        <br>
+                        <div class="form-group">
+                            <label>ชื่อบริษัท</label>
+                            <input name="cus_company" class="form-control" type="text" id="cus_company" size="20"  value="<?php echo $objResult2['cus_company'];?>">
+                        </div>
+                        <br>
 												<div class="form-group">
                             <label>ชื่อผู้ติดต่อ</label>
                             <input name="name_contact" class="form-control" type="text" id="name_contact" size="20"  value="<?php echo $objResult2['name_contact'];?>">

@@ -93,6 +93,10 @@
                                                 <label>สถานที่จัดส่ง</label><br>
                       <label><?php echo $objResult2['address_send'];?></label>
                     </div>
+                    <div class="form-group">
+                        <label>ชื่อบริษัทที่ติดต่อ</label><br>
+                         <label><?php echo $objResult2['cus_company'];?></label>
+                    </div>
                                             <div class="form-group">
                         <label>ชื่อผู้ติดต่อ</label><br>
                          <label><?php echo $objResult2['name_contact'];?></label>
