@@ -121,6 +121,8 @@
                           
                           </select>
                      </div><br>
+                     <textarea class="form-control" aria-label="With textarea" name="notice" id="notice" placeholder="หมายเหตุ"></textarea>
+                     <br>
                      <?php
                     }elseif($objResult2['status']=="ไม่มีของ"){
                         ?>
@@ -132,11 +134,16 @@
                           
                           </select>
                      </div><br>
+                     <textarea class="form-control" aria-label="With textarea" name="notice" id="notice" value="<?php echo $objResult2['notice'];?>"></textarea>
+                     <br>
+
                          
                     <?php    
                     }else{
                         ?>
                         <label><?php echo $objResult2['status'];?></label>
+                        <br>
+                        <textarea class="form-control" aria-label="With textarea" name="notice" id="notice" value="<?php echo $objResult2['notice'];?>"></textarea>
                      <?php
                     }
                      ?>
