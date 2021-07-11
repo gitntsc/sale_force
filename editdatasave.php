@@ -11,7 +11,7 @@ $strSQL .="u_id = '".$_POST["txtUserid"]."' ";
 $strSQL .=",name = '".$_POST["txtName"]."' ";
 $strSQL .=",surname = '".$_POST["txtSName"]."' ";
 $strSQL .=",username = '".$_POST["txtUsername"]."' ";
-$strSQL .=",password = '".$_POST["txtPassword"]."' ";
+$strSQL .=",password = MD5('".$_POST["txtPassword"]."')";
 $strSQL .=",fname = '".$_POST["txtFName"]."' ";
 $strSQL .=",level = '".$_POST["txtLevel"]."' ";
 

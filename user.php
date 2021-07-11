@@ -347,7 +347,7 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 		?>
 		</table>
 		<?php
- $sql2 = "select * from report ";
+ $sql2 = "select * from member ";
  $query2 = mysqli_query($objCon, $sql2);
  $total_record = mysqli_num_rows($query2);
  $total_page = ceil($total_record / $perpage);
