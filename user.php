@@ -317,11 +317,13 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 		    <th width="98"> <div align="center">Name</div></th>
 			<th width="198"> <div align="center">Surname</div></th>
 		    <th width="198"> <div align="center">Username</div></th>
-			<th width="198"> <div align="center">Password</div></th>
+			
 			<th width="198"> <div align="center">Fname</div></th>
 			<th width="97"> <div align="center">level</div></th>
 			 <th width="71"> <div align="center">Company</div></th>
 			<th width="71"> <div align="center">Section</div></th>
+            <th width="71"> <div align="center">Edit</div></th>
+     
 
 		  </tr>
 		<?php
@@ -333,12 +335,13 @@ $objQuery2 = mysqli_query($objCon,$strSQL);
 		    <td><div align="center"><?php echo $objResult3["name"];?></div></td>
 		    <td><div align="center"><?php echo $objResult3["surname"];?></div></td>
 		    <td><div align="center"><?php echo $objResult3["username"];?></div></td>
-			<td><div align="center"><?php echo $objResult3["password"];?></div></td>
+		
 			<td><div align="center"><?php echo $objResult3["fname"];?></div></td>
 			<td><div align="center"><?php echo $objResult3["level"];?></div></td>
 
 		    <td align="center"><?php echo $objResult3["company"];?></td>
 			<td align="center"><?php echo $objResult3["section"];?></td>
+            <td align="center"><a href="fullview_u.php?u_id=<?php echo $objResult2["u_id"];?>">Edit</a></td>
 
 		</tr>
 		  </tr>

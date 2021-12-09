@@ -25,8 +25,8 @@
   }
 	include 'connect.php';
 	$strSQL = "SELECT * FROM member WHERE u_id = '".$_SESSION['u_id']."' ";
-	$objQuery = mysql_query($objCon,$strSQL);
-	$objResult = mysql_fetch_array($objQuery,MYSQLI_ASSOC);
+	$objQuery = mysqli_query($objCon,$strSQL);
+	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>
 
 

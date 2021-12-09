@@ -1,27 +1,24 @@
-
 <?php
-	session_start();
-	if($_SESSION['u_id'] == "")
-	{
-		echo "Please Login!";
-		exit();
-	}
+session_start();
+if ($_SESSION['u_id'] == "") {
+    echo "Please Login!";
+    exit();
+}
 
 
 
-  ini_set('display_errors', 1);
-  error_reporting(~0);
+ini_set('display_errors', 1);
+error_reporting(~0);
 
-  $strKeyword = null;
+$strKeyword = null;
 
-  if(isset($_POST["txtKeyword"]))
-  {
+if (isset($_POST["txtKeyword"])) {
     $strKeyword = $_POST["txtKeyword"];
-  }
-	include 'connect.php';
-	$strSQL = "SELECT * FROM member WHERE u_id = '".$_SESSION['u_id']."' ";
-	$objQuery = mysqli_query($objCon,$strSQL);
-	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+}
+include 'connect.php';
+$strSQL = "SELECT * FROM member WHERE u_id = '" . $_SESSION['u_id'] . "' ";
+$objQuery = mysqli_query($objCon, $strSQL);
+$objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 ?>
 
 
@@ -30,7 +27,10 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,217 +56,262 @@
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
 
-   <style>
-    #weatherWidget .currentDesc {
-        color: #ffffff!important;
-    }
+    <style>
+        #weatherWidget .currentDesc {
+            color: #ffffff !important;
+        }
+
         .traffic-chart {
             min-height: 335px;
         }
-        #flotPie1  {
+
+        #flotPie1 {
             height: 150px;
         }
+
         #flotPie1 td {
-            padding:3px;
+            padding: 3px;
         }
+
         #flotPie1 table {
-            top: 20px!important;
-            right: -10px!important;
+            top: 20px !important;
+            right: -10px !important;
         }
+
         .chart-container {
             display: table;
-            min-width: 270px ;
+            min-width: 270px;
             text-align: left;
             padding-top: 10px;
             padding-bottom: 10px;
         }
-        #flotLine5  {
-             height: 105px;
+
+        #flotLine5 {
+            height: 105px;
         }
 
         #flotBarChart {
             height: 150px;
         }
-        #cellPaiChart{
+
+        #cellPaiChart {
             height: 160px;
         }
-
     </style>
 </head>
 
 <body>
     <!-- Left Panel -->
-		<?php
-		include "check_level.php";
-		?>
-        </header>
-        <!-- /#header -->
-        <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
+    <?php
+    include "check_level.php";
+    ?>
+    </header>
+    <!-- /#header -->
+    <!-- Content -->
+    <div class="content">
+        <!-- Animated -->
+        <div class="animated fadeIn">
 
-                <!--  Traffic  -->
+            <!--  Traffic  -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="box-title">Search Section</h4>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="card-body">
-                                        <!-- <canvas id="TrafficChart"></canvas>   -->
-                                        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="box-title">Search Section</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card-body">
+                                    <!-- <canvas id="TrafficChart"></canvas>   -->
+                                    <div class="container">
 
-                                        <center><div class="form-group">
-                                          <form name="frmSearch" method="post" action="<?=$_SERVER['SCRIPT_NAME'];?>">
-																						<input name="txtKeyword" type="text" id="txtKeyword" value="<?php echo $strKeyword;?>">
+                                        <center>
+                                            <div class="form-group">
+                                                <form name="frmSearch" method="post" action="<?= $_SERVER['SCRIPT_NAME']; ?>">
+                                                    <input name="txtKeyword" type="text" id="txtKeyword" value="<?php echo $strKeyword; ?>">
 
 
-                                				</select>
-                                          <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Search</button>
-                                        </form>
-                                      </div></center>
+                                                    </select>
+                                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Search</button>
+                                                </form>
+                                            </div>
+                                        </center>
                                     </div>
 
-	</table>
+                                    </table>
 
-                                    </div> <!-- /.card-body -->
-                                </div>
-                            </div> <!-- /.row -->
-                            <div class="card-body"></div>
+                                </div> <!-- /.card-body -->
+                            </div>
+                        </div> <!-- /.row -->
+                        <div class="card-body"></div>
+                    </div>
+                </div><!-- /# column -->
+            </div>
+            <!--  /Traffic -->
+            <div class="clearfix"></div>
+
+
+
+            <?php
+
+            include "connect.php";
+
+            $sql = "SELECT * FROM tbl_event WHERE username LIKE '%" . $strKeyword . "%' ";
+
+            $query = mysqli_query($objCon, $sql);
+
+            ?>
+
+            <!--  Form Report  -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="box-title">ข้อมูล</h4>
                         </div>
-                    </div><!-- /# column -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card-body">
+                                    <!-- <canvas id="TrafficChart"></canvas>   -->
+
+                                    <div class="sufee-login d-flex align-content-center flex-wrap">
+                                        <div class="container">
+
+                                            <div class="login-logo">
+                                                <a href="index.html">
+                                                    <img class="align-content" src="images/logo_01.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="login-form">
+                                                <table class="table">
+                                                    <thead class="thead-dark">
+
+
+                                                        <tr>
+                                                            <th width="91">
+                                                                <div align="center">Id</div>
+                                                            </th>
+                                                            <th width="98">
+                                                                <div align="center">Username</div>
+                                                            </th>
+                                                            <th width="198">
+                                                                <div align="center">Company name</div>
+                                                            </th>
+                                                            <th width="198">
+                                                                <div align="center">Customer Name</div>
+                                                            </th>
+                                                            <th width="198">
+                                                                <div align="center">Customer Level</div>
+                                                            </th>
+                                                            <th width="198">
+                                                                <div align="center">Grade</div>
+                                                            </th>
+                                                            <th width="97">
+                                                                <div align="center">Detail</div>
+                                                            </th>
+                                                            <th width="71">
+                                                                <div align="center">Start</div>
+                                                            </th>
+                                                            <th width="71">
+                                                                <div align="center">Time</div>
+                                                            </th>
+                                                            <th width="71">
+                                                                <div align="center">Section</div>
+                                                            </th>
+                                                            <th width="71">
+                                                                <div align="center">Edit</div>
+                                                            </th>
+
+                                                        </tr>
+                                                        <?php
+                                                        while ($objResult2 = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                                                        ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <div align="center"><?php echo $objResult2["id"]; ?></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div align="center"><?php echo $objResult2["username"]; ?></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div align="center"><?php echo $objResult2["company_name"]; ?></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div align="center"><?php echo $objResult2["customer_name"]; ?></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div align="center"><?php echo $objResult2["cuslevel"]; ?></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div align="center"><?php echo $objResult2["grade"]; ?></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div align="center"><?php echo $objResult2["detail"]; ?></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div align="center"><?php echo $objResult2["start"]; ?></div>
+                                                                </td>
+                                                                <td align="center"><?php echo $objResult2["time"]; ?></td>
+                                                                <td align="center"><?php echo $objResult2["section"]; ?></td>
+                                                                <td align="center"><a href="pre_view.php?id=<?php echo $objResult2["id"]; ?>">edit</a></td>
+
+                                                            </tr>
+                                                            </tr>
+                                                        <?php
+                                                        }
+
+                                                        ?>
+                                                </table>
+
+                                                </tr>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div> <!-- /.card-body -->
+                    </div>
+                </div> <!-- /.row -->
+                <div class="card-body"></div>
+            </div>
+        </div><!-- /# column -->
+    </div>
+    <!--  /Form Report -->
+    <div class="clearfix"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Calender Chart Weather  -->
+
+    <footer class="site-footer">
+        <div class="footer-inner bg-white">
+            <div class="row">
+                <div class="col-sm-6">
+                    Copyright &copy; 2018 Ela Admin
                 </div>
-                <!--  /Traffic -->
-                <div class="clearfix"></div>
-
-
-
-                <?php
-
-                   include "connect.php";
-
-                $sql = "SELECT * FROM tbl_event WHERE username LIKE '%".$strKeyword."%' ";
-
-                   $query = mysqli_query($objCon,$sql);
-
-                ?>
-
-								<!--  Form Report  -->
-								<div class="row">
-										<div class="col-lg-12">
-												<div class="card">
-														<div class="card-body">
-																<h4 class="box-title">ข้อมูล</h4>
-														</div>
-														<div class="row">
-																<div class="col-lg-12">
-																		<div class="card-body">
-																				<!-- <canvas id="TrafficChart"></canvas>   -->
-
-																				<div class="sufee-login d-flex align-content-center flex-wrap">
-																		        <div class="container">
-
-																		                <div class="login-logo">
-																		                    <a href="index.html">
-																		                        <img class="align-content" src="images/logo_01.png" alt="">
-																		                    </a>
-																		                </div>
-																		                <div class="login-form">
-                                                      <table class="table">
-                                                      <thead class="thead-dark">
-
-
-																												<tr>
-																													<th width="91"> <div align="center">Id</div></th>
-																													<th width="98"> <div align="center">Username</div></th>
-																												<th width="198"> <div align="center">Company name</div></th>
-																												<th width="198"> <div align="center">Customer Name</div></th>
-																												<th width="198"> <div align="center">Customer Level</div></th>
-																												<th width="198"> <div align="center">Grade</div></th>
-																												<th width="97"> <div align="center">Detail</div></th>
-																												 <th width="71"> <div align="center">Start</div></th>
-																												 <th width="71"> <div align="center">Time</div></th>
-																												<th width="71"> <div align="center">Section</div></th>
-																												<th width="71"> <div align="center">Edit</div></th>
-
-                                                    		</tr>
-                                                    	<?php
-                                                    	while($objResult2=mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                                    	{
-                                                    	?>
-																											<tr>
-																												<td><div align="center"><?php echo $objResult2["id"];?></div></td>
-																												<td><div align="center"><?php echo $objResult2["username"];?></div></td>
-																												<td><div align="center"><?php echo $objResult2["company_name"];?></div></td>
-																												<td><div align="center"><?php echo $objResult2["customer_name"];?></div></td>
-																											<td><div align="center"><?php echo $objResult2["cuslevel"];?></div></td>
-																											<td><div align="center"><?php echo $objResult2["grade"];?></div></td>
-																											<td><div align="center"><?php echo $objResult2["detail"];?></div></td>
-																											<td><div align="center"><?php echo $objResult2["start"];?></div></td>
-																											<td align="center"><?php echo $objResult2["time"];?></td>
-																												<td align="center"><?php echo $objResult2["section"];?></td>
-                                                    			<td align="center"><a href="pre_view.php?id=<?php echo $objResult2["id"];?>">edit</a></td>
-
-                                                    	</tr>
-                                                    		</tr>
-                                                    	<?php
-                                                    	}
-
-                                                    	?>
-                                                    	</table>
-
-                                                      </tr>
-																		            </div>
-																		        </div>
-																		    </div>
-																			</div>
-																		</div>
-
-
-
-																		</div> <!-- /.card-body -->
-																</div>
-														</div> <!-- /.row -->
-														<div class="card-body"></div>
-												</div>
-										</div><!-- /# column -->
-								</div>
-								<!--  /Form Report -->
-								<div class="clearfix"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <!-- Calender Chart Weather  -->
-
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-6">
-                        Copyright &copy; 2018 Ela Admin
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        Designed by <a href="https://colorlib.com">Colorlib</a>
-                    </div>
+                <div class="col-sm-6 text-right">
+                    Designed by <a href="https://colorlib.com">Colorlib</a>
                 </div>
             </div>
-        </footer>
-        <!-- /.site-footer -->
+        </div>
+    </footer>
+    <!-- /.site-footer -->
     </div>
     <!-- /#right-panel -->
 
@@ -301,10 +346,27 @@
             "use strict";
 
             // Pie chart flotPie1
-            var piedata = [
-                { label: "Desktop visits", data: [[1,32]], color: '#5c6bc0'},
-                { label: "Tab visits", data: [[1,33]], color: '#ef5350'},
-                { label: "Mobile visits", data: [[1,35]], color: '#66bb6a'}
+            var piedata = [{
+                    label: "Desktop visits",
+                    data: [
+                        [1, 32]
+                    ],
+                    color: '#5c6bc0'
+                },
+                {
+                    label: "Tab visits",
+                    data: [
+                        [1, 33]
+                    ],
+                    color: '#ef5350'
+                },
+                {
+                    label: "Mobile visits",
+                    data: [
+                        [1, 35]
+                    ],
+                    color: '#66bb6a'
+                }
             ];
 
             $.plot('#flotPie1', piedata, {
@@ -315,7 +377,7 @@
                         innerRadius: 0.65,
                         label: {
                             show: true,
-                            radius: 2/3,
+                            radius: 2 / 3,
                             threshold: 1
                         },
                         stroke: {
@@ -330,9 +392,20 @@
             });
             // Pie chart flotPie1  End
             // cellPaiChart
-            var cellPaiChart = [
-                { label: "Direct Sell", data: [[1,65]], color: '#5b83de'},
-                { label: "Channel Sell", data: [[1,35]], color: '#00bfa5'}
+            var cellPaiChart = [{
+                    label: "Direct Sell",
+                    data: [
+                        [1, 65]
+                    ],
+                    color: '#5b83de'
+                },
+                {
+                    label: "Channel Sell",
+                    data: [
+                        [1, 35]
+                    ],
+                    color: '#00bfa5'
+                }
             ];
             $.plot('#cellPaiChart', cellPaiChart, {
                 series: {
@@ -345,7 +418,8 @@
                 },
                 legend: {
                     show: false
-                },grid: {
+                },
+                grid: {
                     hoverable: true,
                     clickable: true
                 }
@@ -353,14 +427,23 @@
             });
             // cellPaiChart End
             // Line Chart  #flotLine5
-            var newCust = [[0, 3], [1, 5], [2,4], [3, 7], [4, 9], [5, 3], [6, 6], [7, 4], [8, 10]];
+            var newCust = [
+                [0, 3],
+                [1, 5],
+                [2, 4],
+                [3, 7],
+                [4, 9],
+                [5, 3],
+                [6, 6],
+                [7, 4],
+                [8, 10]
+            ];
 
-            var plot = $.plot($('#flotLine5'),[{
+            var plot = $.plot($('#flotLine5'), [{
                 data: newCust,
                 label: 'New Data Flow',
                 color: '#fff'
-            }],
-            {
+            }], {
                 series: {
                     lines: {
                         show: true,
@@ -390,25 +473,25 @@
             // Traffic Chart using chartist
             if ($('#traffic-chart').length) {
                 var chart = new Chartist.Line('#traffic-chart', {
-                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                  series: [
-                  [0, 18000, 35000,  25000,  22000,  0],
-                  [0, 33000, 15000,  20000,  15000,  300],
-                  [0, 15000, 28000,  15000,  30000,  5000]
-                  ]
-              }, {
-                  low: 0,
-                  showArea: true,
-                  showLine: false,
-                  showPoint: false,
-                  fullWidth: true,
-                  axisX: {
-                    showGrid: true
-                }
-            });
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    series: [
+                        [0, 18000, 35000, 25000, 22000, 0],
+                        [0, 33000, 15000, 20000, 15000, 300],
+                        [0, 15000, 28000, 15000, 30000, 5000]
+                    ]
+                }, {
+                    low: 0,
+                    showArea: true,
+                    showLine: false,
+                    showPoint: false,
+                    fullWidth: true,
+                    axisX: {
+                        showGrid: true
+                    }
+                });
 
                 chart.on('draw', function(data) {
-                    if(data.type === 'line' || data.type === 'area') {
+                    if (data.type === 'line' || data.type === 'area') {
                         data.element.animate({
                             d: {
                                 begin: 2000 * data.index,
@@ -424,36 +507,35 @@
             // Traffic Chart using chartist End
             //Traffic chart chart-js
             if ($('#TrafficChart').length) {
-                var ctx = document.getElementById( "TrafficChart" );
+                var ctx = document.getElementById("TrafficChart");
                 ctx.height = 150;
-                var myChart = new Chart( ctx, {
+                var myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul" ],
-                        datasets: [
-                        {
-                            label: "Visit",
-                            borderColor: "rgba(4, 73, 203,.09)",
-                            borderWidth: "1",
-                            backgroundColor: "rgba(4, 73, 203,.5)",
-                            data: [ 0, 2900, 5000, 3300, 6000, 3250, 0 ]
-                        },
-                        {
-                            label: "Bounce",
-                            borderColor: "rgba(245, 23, 66, 0.9)",
-                            borderWidth: "1",
-                            backgroundColor: "rgba(245, 23, 66,.5)",
-                            pointHighlightStroke: "rgba(245, 23, 66,.5)",
-                            data: [ 0, 4200, 4500, 1600, 4200, 1500, 4000 ]
-                        },
-                        {
-                            label: "Targeted",
-                            borderColor: "rgba(40, 169, 46, 0.9)",
-                            borderWidth: "1",
-                            backgroundColor: "rgba(40, 169, 46, .5)",
-                            pointHighlightStroke: "rgba(40, 169, 46,.5)",
-                            data: [1000, 5200, 3600, 2600, 4200, 5300, 0 ]
-                        }
+                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+                        datasets: [{
+                                label: "Visit",
+                                borderColor: "rgba(4, 73, 203,.09)",
+                                borderWidth: "1",
+                                backgroundColor: "rgba(4, 73, 203,.5)",
+                                data: [0, 2900, 5000, 3300, 6000, 3250, 0]
+                            },
+                            {
+                                label: "Bounce",
+                                borderColor: "rgba(245, 23, 66, 0.9)",
+                                borderWidth: "1",
+                                backgroundColor: "rgba(245, 23, 66,.5)",
+                                pointHighlightStroke: "rgba(245, 23, 66,.5)",
+                                data: [0, 4200, 4500, 1600, 4200, 1500, 4000]
+                            },
+                            {
+                                label: "Targeted",
+                                borderColor: "rgba(40, 169, 46, 0.9)",
+                                borderWidth: "1",
+                                backgroundColor: "rgba(40, 169, 46, .5)",
+                                pointHighlightStroke: "rgba(40, 169, 46,.5)",
+                                data: [1000, 5200, 3600, 2600, 4200, 5300, 0]
+                            }
                         ]
                     },
                     options: {
@@ -468,12 +550,28 @@
                         }
 
                     }
-                } );
+                });
             }
             //Traffic chart chart-js  End
             // Bar Chart #flotBarChart
             $.plot("#flotBarChart", [{
-                data: [[0, 18], [2, 8], [4, 5], [6, 13],[8,5], [10,7],[12,4], [14,6],[16,15], [18, 9],[20,17], [22,7],[24,4], [26,9],[28,11]],
+                data: [
+                    [0, 18],
+                    [2, 8],
+                    [4, 5],
+                    [6, 13],
+                    [8, 5],
+                    [10, 7],
+                    [12, 4],
+                    [14, 6],
+                    [16, 15],
+                    [18, 9],
+                    [20, 17],
+                    [22, 7],
+                    [24, 4],
+                    [26, 9],
+                    [28, 11]
+                ],
                 bars: {
                     show: true,
                     lineWidth: 0,
@@ -488,4 +586,5 @@
         });
     </script>
 </body>
+
 </html>
